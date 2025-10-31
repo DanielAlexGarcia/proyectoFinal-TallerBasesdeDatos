@@ -24,7 +24,7 @@ public class ConexionDB {
                                     //127.0.0.1
             String serverName = "localhost"; // O el nombre/IP de tu servidor
             String portNumber = "1433"; 
-            String databaseName = "BD_Topicos_2025"; 
+            String databaseName = "Clinica"; 
             
             // La clave es el parámetro integratedSecurity=true
             String URL = "jdbc:sqlserver://" + serverName + ":" + portNumber + 
