@@ -11,11 +11,13 @@ package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
 public class VentanaInicio extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaInicio.class.getName());
+    
 
     /**
      * Creates new form VentanaInicio
      */
     public VentanaInicio() {
+        destopPanel.add(new PersoEdit());
         initComponents();
     }
 
@@ -29,7 +31,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem4 = new javax.swing.JMenuItem();
-        jDesktopPane1 = new javax.swing.JDesktopPane();
+        destopPanel = new javax.swing.JDesktopPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuPersonal = new javax.swing.JMenu();
         PersonalAlta = new javax.swing.JMenuItem();
@@ -44,14 +46,14 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
-        jDesktopPane1.setLayout(jDesktopPane1Layout);
-        jDesktopPane1Layout.setHorizontalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout destopPanelLayout = new javax.swing.GroupLayout(destopPanel);
+        destopPanel.setLayout(destopPanelLayout);
+        destopPanelLayout.setHorizontalGroup(
+            destopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 905, Short.MAX_VALUE)
         );
-        jDesktopPane1Layout.setVerticalGroup(
-            jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        destopPanelLayout.setVerticalGroup(
+            destopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 575, Short.MAX_VALUE)
         );
 
@@ -107,11 +109,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(destopPanel)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jDesktopPane1)
+            .addComponent(destopPanel)
         );
 
         pack();
@@ -167,7 +169,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem PersonalAlta;
     private javax.swing.JMenuItem PersonalBaja;
     private javax.swing.JMenuItem PersonalConsulta;
-    private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane destopPanel;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem4;
     // End of variables declaration//GEN-END:variables
