@@ -11,14 +11,16 @@ package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
 public class VentanaInicio extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaInicio.class.getName());
+    PersoEdit perEdit = new PersoEdit();
     
 
     /**
      * Creates new form VentanaInicio
      */
     public VentanaInicio() {
-        destopPanel.add(new PersoEdit());
         initComponents();
+        perEdit.setVisible(true);
+        destopPanel.add(perEdit);
     }
 
     /**

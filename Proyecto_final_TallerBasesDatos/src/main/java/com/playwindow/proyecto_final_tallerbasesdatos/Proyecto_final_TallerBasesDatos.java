@@ -4,6 +4,7 @@
 
 package com.playwindow.proyecto_final_tallerbasesdatos;
 import com.playwindow.proyecto_final_tallerbasesdatos.Modelos.*;
+import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.*;
 
 /**
  *
@@ -12,7 +13,11 @@ import com.playwindow.proyecto_final_tallerbasesdatos.Modelos.*;
 public class Proyecto_final_TallerBasesDatos {
 
     public static void main(String[] args) {
-        ConexionDB conexion = new ConexionDB();
-        System.out.println("Hello World!");
+        
+       java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new VentanaInicio().setVisible(true);
+            }
+        });
     }
 }
