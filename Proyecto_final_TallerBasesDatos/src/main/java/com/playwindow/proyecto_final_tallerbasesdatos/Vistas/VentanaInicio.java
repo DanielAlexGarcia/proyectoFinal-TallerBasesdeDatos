@@ -55,26 +55,21 @@ public class VentanaInicio extends javax.swing.JFrame {
         PersonaDAO dao = new PersonaDAO(interfaz);
 
         // Datos para la actualización (asegúrate de que los tipos coincidan)
-        int dniActualizar = 100;
-        String nombres = "Ana María";
-        String primerAP = "García";
-        String segundoAP = "López";
-        String fechaNaci = "1985-05-02";
+        int dni = 113;
+        String nombres = "2";
+        String primerAP = "2";
+        String segundoAP = "2";
+        String fechaNaci = "1800-10-10";
         String telefono = "5551234567";
 
         // 3. INVOCAR el método usando la instancia y las CORRECCIONES (comillas dobles)
-        boolean exito = dao.actualizarPersona(
-            dniActualizar, 
-            nombres, 
-            primerAP, 
-            segundoAP, 
-            fechaNaci, 
-            telefono
+        boolean exito = dao.eliminarFila(
+            dni
         );
 
         // Opcional: Imprimir el resultado para verificar
         if (exito) {
-            System.out.println("✅ Actualización de la persona con DNI " + dniActualizar + " exitosa.");
+            System.out.println("✅ Actualización de la persona con DNI " + dni + " exitosa.");
         } else {
             System.out.println("❌ Fallo en la actualización. Revisa la consola para ver el error de SQL/BD.");
         }
@@ -153,6 +148,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         CitaAgendar = new javax.swing.JMenuItem();
         CitaConsulta = new javax.swing.JMenuItem();
         CitaEditar = new javax.swing.JMenuItem();
+        estadistica = new javax.swing.JMenu();
+        Reporte = new javax.swing.JMenu();
 
         jMenuItem4.setText("jMenuItem4");
 
@@ -308,6 +305,12 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         MenuBarOP.add(MenuCita);
 
+        estadistica.setText("Grafico");
+        MenuBarOP.add(estadistica);
+
+        Reporte.setText("Reporte");
+        MenuBarOP.add(Reporte);
+
         setJMenuBar(MenuBarOP);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -421,10 +424,12 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem PersonalAlta;
     private javax.swing.JMenuItem PersonalBaja;
     private javax.swing.JMenuItem PersonalConsulta;
+    private javax.swing.JMenu Reporte;
     private javax.swing.JTextArea Usuario;
     private javax.swing.JDialog cargando;
     private javax.swing.JPasswordField contraseña;
     private javax.swing.JDesktopPane destopPanel;
+    private javax.swing.JMenu estadistica;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
