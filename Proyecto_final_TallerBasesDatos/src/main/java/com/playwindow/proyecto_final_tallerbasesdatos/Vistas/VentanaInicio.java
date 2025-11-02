@@ -55,7 +55,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         PersonaDAO dao = new PersonaDAO(interfaz);
 
         // Datos para la actualización (asegúrate de que los tipos coincidan)
-        int dni = 113;
+        int dni = 100;
         String nombres = "2";
         String primerAP = "2";
         String segundoAP = "2";
@@ -63,9 +63,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         String telefono = "5551234567";
 
         // 3. INVOCAR el método usando la instancia y las CORRECCIONES (comillas dobles)
-        boolean exito = dao.eliminarFila(
-            dni
-        );
+        
+        boolean exito;
+        dao.listarPersonas();
+        if (dao != null){
+            exito = true;
+        }else{
+            exito = false;
+        }
 
         // Opcional: Imprimir el resultado para verificar
         if (exito) {
@@ -83,7 +88,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         añadirOpciones(false);
         destopPanel.add(perEdit);
        provar();
-        
     }
     public void showMessageDialog(JFrame fame, String n, boolean activar) {
 		  // ventana = JFrame padre

@@ -121,6 +121,61 @@ public class PersonaDAO {
 	        }
 	    }
          
+    public Persona buscarPersonaPorId(int donadorID) {
+	        String sql = "SELECT * FROM Persona WHERE DNI = ?";
+	        PreparedStatement stmt = null;
+	        ResultSet rs = null;
+	        
+	        try {
+	            stmt = ConexionBD.getInstancia().getConnection().prepareStatement(sql);
+	            stmt.setInt(1, donadorID);
+	            rs = stmt.executeQuery();
+	            
+	            // IMPORTANTE: Verificar si existe una fila antes de leer los datos
+	            if (rs.next()) {
+	                // Ahora sí podemos leer los datos de la fila
+	                Persona dona = new Persona(
+	                    rs.getInt("DNI"),
+	                    rs.getString("Nombres"),
+	                    rs.getString("PrimerAP"),
+	                    rs.getString("SegundoAP"),
+	                    rs.getString("FechaNaci"),
+	                    rs.getString("Telefono")
+	                );
+                              
+	                return dona;
+	            } else {
+	                // No se encontró ningún donador con ese ID
+	                System.out.println("No se encontró una persona con ese DNI: " + donadorID);
+	                return null;
+	            }
+	            
+	        } catch (SQLException e) {
+	            System.out.println("Error al buscar Persona: " + e.getMessage());
+	            e.printStackTrace(); // Para más detalles del error
+	            return null;
+	        } finally {
+	            // Cerrar recursos para evitar memory leaks
+	            try {
+	                if (rs != null) rs.close();
+	                if (stmt != null) stmt.close();
+	            } catch (SQLException e) {
+	                System.out.println("Error al cerrar recursos: " + e.getMessage());
+	            }
+	        }
+	    }
+    
+    public ResultSet listarPersonas() {
+	        String sql = "SELECT * FROM Persona";
+	        try {
+	        	PreparedStatement stmt = ConexionBD.getInstancia().getConnection().prepareStatement(sql);
+	            return stmt.executeQuery();
+	        } catch (SQLException e) {
+	            System.out.println("Error al listar Personas: " + e.getMessage());
+	            
+	            return null;
+	        }
+	    }     
          
          public Date convertirStringADateSQL(String fechaString) {
     final String FORMATO_FECHA = "yyyy-MM-dd";

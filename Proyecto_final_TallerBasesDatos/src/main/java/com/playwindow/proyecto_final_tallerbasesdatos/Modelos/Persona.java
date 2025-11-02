@@ -87,12 +87,12 @@ public class Persona {
     @Override
 	public String toString() {
 		return "Persona{"+ '\''
-				+ "ID donador: " + DNI + '\''
-				+ "Colonia: " + Nombres+ '\''
-				+ "Calle: " + PrimerAP+ '\''
-				+ "Numero exterior: " +SegundoAP+ '\''
-				+ "Numero interior: " +FechaNaci+ '\''
-				+ "Telefono de contacto: "+ Telefono+ '\''+" }";
+				+ "DNI: " + DNI + '\n'
+				+ "Nombres: " + Nombres+ '\n'
+				+ "PrimerAP: " + PrimerAP+ '\n'
+				+ "SegundoAP: " +SegundoAP+ '\n'
+				+ "Fecha nacimiento: " +FechaNaci+ '\n'
+				+ "Telefono: "+ Telefono+ '\n'+" }";
 				
 		
 	}
