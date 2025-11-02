@@ -7,7 +7,7 @@
         <Property name="text" type="java.lang.String" value="jMenuItem4"/>
       </Properties>
     </Component>
-    <Container class="javax.swing.JDialog" name="jDialog1">
+    <Container class="javax.swing.JDialog" name="cargando">
 
       <Layout>
         <DimensionLayout dim="0">

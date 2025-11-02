@@ -18,5 +18,6 @@ public class Proyecto_final_TallerBasesDatos {
                 new VentanaInicio().setVisible(true);
             }
         });
+       
     }
 }

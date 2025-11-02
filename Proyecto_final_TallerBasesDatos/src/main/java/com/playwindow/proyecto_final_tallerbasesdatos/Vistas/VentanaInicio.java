@@ -3,7 +3,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
+
+import com.playwindow.proyecto_final_tallerbasesdatos.Controlador.*;
 import java.beans.PropertyVetoException;
+import java.sql.Connection;
 import javax.swing.*;
 
 /**
@@ -13,11 +16,69 @@ import javax.swing.*;
 public class VentanaInicio extends javax.swing.JFrame {
     
     public static VentanaInicio interfaz;
+    public static JFrame frame = new JFrame();
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaInicio.class.getName());
     PersoEdit perEdit = new PersoEdit();
     
+    private void coneccionDB(){
+        System.out.println("--- Iniciando prueba de conexión ---");
 
+        // 1. Obtener la única instancia de la clase ConexionBD
+        ConexionBD db = ConexionBD.getInstancia();
+
+        // 2. Obtener el objeto Connection
+        Connection conn = db.getConnection();
+
+        // 3. Verificar si la conexión es válida
+        try {
+            if (conn != null && !conn.isClosed()) {
+                System.out.println("✅ La conexión a la base de datos es exitosa y está abierta.");
+                System.out.println("URL: " + conn.getMetaData().getURL());
+                
+                // Opcional: Probar un método de la clase DAO (ej. si estuviera en la misma clase)
+                // db.connecctionDatabase("otro_esquema");
+            } else {
+                System.out.println("❌ La conexión falló o está cerrada. Revisa los errores en el constructor.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            System.out.println("❌ Error al verificar la conexión.");
+        }
+    }
+
+    private void provar(){
+        
+        ConexionBD conexion = new ConexionBD();
+        
+         // 2. CREAR una instancia de la clase PersonaDAO
+        PersonaDAO dao = new PersonaDAO(interfaz);
+
+        // Datos para la actualización (asegúrate de que los tipos coincidan)
+        int dniActualizar = 100;
+        String nombres = "Ana María";
+        String primerAP = "García";
+        String segundoAP = "López";
+        String fechaNaci = "1985-05-02";
+        String telefono = "5551234567";
+
+        // 3. INVOCAR el método usando la instancia y las CORRECCIONES (comillas dobles)
+        boolean exito = dao.actualizarPersona(
+            dniActualizar, 
+            nombres, 
+            primerAP, 
+            segundoAP, 
+            fechaNaci, 
+            telefono
+        );
+
+        // Opcional: Imprimir el resultado para verificar
+        if (exito) {
+            System.out.println("✅ Actualización de la persona con DNI " + dniActualizar + " exitosa.");
+        } else {
+            System.out.println("❌ Fallo en la actualización. Revisa la consola para ver el error de SQL/BD.");
+        }
+    }
     /**
      * Creates new form VentanaInicio
      */
@@ -26,7 +87,26 @@ public class VentanaInicio extends javax.swing.JFrame {
         contraseña.setText("");
         añadirOpciones(false);
         destopPanel.add(perEdit);
+       provar();
+        
     }
+    public void showMessageDialog(JFrame fame, String n, boolean activar) {
+		  // ventana = JFrame padre
+        if (activar) {
+        	cargando = new JDialog(frame, "Espere...", false);
+        	JLabel mensaje = new JLabel(n, SwingConstants.CENTER);
+            mensaje.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
+            cargando.add(mensaje);
+            cargando.pack();
+            cargando.setLocationRelativeTo(this);
+            cargando.setVisible(true);
+    	}else {
+    		if(cargando != null) {
+    			cargando.dispose();
+    			cargando = null;		// libera la referencia para la proxima creacion de la ventana
+    		}
+    	}
+        }
     
     private boolean comprovarUsuario(String usuario){
 		
@@ -52,7 +132,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem4 = new javax.swing.JMenuItem();
-        jDialog1 = new javax.swing.JDialog();
+        cargando = new javax.swing.JDialog();
         destopPanel = new javax.swing.JDesktopPane();
         InicioSecion = new javax.swing.JInternalFrame();
         jLabel1 = new javax.swing.JLabel();
@@ -76,14 +156,14 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         jMenuItem4.setText("jMenuItem4");
 
-        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
-        jDialog1.getContentPane().setLayout(jDialog1Layout);
-        jDialog1Layout.setHorizontalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout cargandoLayout = new javax.swing.GroupLayout(cargando.getContentPane());
+        cargando.getContentPane().setLayout(cargandoLayout);
+        cargandoLayout.setHorizontalGroup(
+            cargandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 400, Short.MAX_VALUE)
         );
-        jDialog1Layout.setVerticalGroup(
-            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        cargandoLayout.setVerticalGroup(
+            cargandoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 300, Short.MAX_VALUE)
         );
 
@@ -309,29 +389,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void añadirOpciones(boolean accion){
         MenuBarOP.setVisible(accion);
     }
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ReflectiveOperationException | javax.swing.UnsupportedLookAndFeelException ex) {
-            logger.log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(() -> new VentanaInicio().setVisible(true));
+        
+       
+        
     }
     public static VentanaInicio getinterfaz(){
         return interfaz;
@@ -358,9 +422,9 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem PersonalBaja;
     private javax.swing.JMenuItem PersonalConsulta;
     private javax.swing.JTextArea Usuario;
+    private javax.swing.JDialog cargando;
     private javax.swing.JPasswordField contraseña;
     private javax.swing.JDesktopPane destopPanel;
-    private javax.swing.JDialog jDialog1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

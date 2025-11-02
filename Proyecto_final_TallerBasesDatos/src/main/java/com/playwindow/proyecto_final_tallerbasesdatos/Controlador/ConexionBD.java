@@ -10,20 +10,28 @@ public class ConexionBD {
 	public static ConexionBD getInstancia() {							// Se implemeta un metodo estatico para aplicar Singleton (una unica instancia en todo el programa)
 	    return instancia;
 	}
-
+        
     private Connection connection; 		// es parte del API JDBC permite establecer y gestionar la conexion a una base de datos
     private Statement stm; // PreparedStatement es mejor ya que evita SQL Injection
     private ResultSet rs;
 
-    private ConexionBD() {
-        try {
-            Class.forName("org.mariadb.jdbc.Driver");
+    public ConexionBD() {
+         try {
+            Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
+                                    //127.0.0.1
+            String serverName = "localhost"; // O el nombre/IP de tu servidor
+            String portNumber = "1433"; 
+            String databaseName = "clinica"; 
+            
+            // La clave es el parámetro integratedSecurity=true
+            String URL = "jdbc:sqlserver://" + serverName + ":" + portNumber + 
+                         ";databaseName=" + databaseName + 
+                         ";integratedSecurity=true;trustServerCertificate=true;"; // Se añade trustServerCertificate=true si tienes problemas con el certificado SSL
 
-            String URL = "jdbc:mariadb://localhost:3306/recaudacionuniversicad";
+            // Conexión SIN usuario ni contraseña
+            connection = DriverManager.getConnection(URL);
 
-
-            connection = DriverManager.getConnection(URL, "root", "f44WOs%NvF");
-            System.out.println("Conexcion exitosa");
+            System.out.println("YEEEEI Casi son ingeniera/o INMORTAL !!!!");
 
         } catch (ClassNotFoundException e) {
             System.out.println("Error en el connector / driver");

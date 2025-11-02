@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Types;
+import com.playwindow.proyecto_final_tallerbasesdatos.Controlador.*;
 
 
 
@@ -21,21 +22,17 @@ import java.sql.Types;
  * @author daniel
  */
 public class PersonaDAO {
-
-    public void setConexionBD(ConexionBD ConexionBD) {
-        this.ConexionBD = ConexionBD;
-    }
     private VentanaInicio Interfaz;
-    private ConexionBD ConexionBD;
     
-    public PersonaDAO(VentanaInicio interfaz, ConexionBD conexionBD){
- 
-        this.Interfaz = interfaz;
-        this.ConexionBD = conexionBD;
+    public PersonaDAO(VentanaInicio interfaz){
+                if(interfaz != null) {
+			this.Interfaz = interfaz;
+		}
+                
     }
     
-    public boolean actualizarDonador(int dni, String Nombres, String PrimerAP, String SegundoAP, String FechaNaci, String telefono) {
-	    String sql = "UPDATE Persona SET Nombres = ?, PrimerAP = ?, SegundoAP = ?, FechaNaci = ?, Telefono = ?, " +
+    public boolean actualizarPersona(int dni, String Nombres, String PrimerAP, String SegundoAP, String FechaNaci, String telefono) {
+	    String sql = "UPDATE Persona SET Nombres = ?, PrimerAP = ?, SegundoAP = ?, FechaNaci = ?, Telefono = ? " +
 	                 "WHERE DNI = ?";
 	    try (PreparedStatement stmt = ConexionBD.getInstancia().getConnection().prepareStatement(sql)) {
 	        stmt.setString(1, Nombres);
