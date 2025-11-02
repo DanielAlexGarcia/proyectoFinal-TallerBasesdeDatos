@@ -49,9 +49,9 @@ public class PersonalDAO {
 	    }
 	}
     // Elimina fila usando id con PreparedStatement
-   /*
+   
     public boolean eliminarFila(int PersonaDNI) {
-	        String sql = "DELETE FROM Persona WHERE DNI = ?";
+	        String sql = "DELETE FROM Personal WHERE ID = ?";
 	        try (PreparedStatement stmt = ConexionBD.getInstancia().getConnection().prepareStatement(sql)) {
 	            stmt.setInt(1, PersonaDNI);
 	            int filasAfectadas = stmt.executeUpdate();
@@ -62,7 +62,7 @@ public class PersonalDAO {
 	            return false;
 	        }
 	    }
-    
+    /*
     // agregar fila
          public boolean insertarPersona(Integer idOP, String Nombres, String PrimerAP, String SegundoAP,
 	    		String FechaNaci, String Telefono) {

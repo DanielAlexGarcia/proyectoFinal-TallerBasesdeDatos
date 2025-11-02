@@ -56,7 +56,7 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         // Datos para la actualización (asegúrate de que los tipos coincidan)
         int dni = 103;
-        int ID = 4;
+        int ID = 1;
         String cam1 = "Doctor";
         String camp2 = "Cardiología";
         String camp3 = "Cardiólogo";
@@ -67,7 +67,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         // 3. INVOCAR el método usando la instancia y las CORRECCIONES (comillas dobles)
         
         boolean exito;
-        exito = dao.actualizarPersonal(ID, dni, cam1, camp2, camp3, campo10);
+        exito = dao.eliminarFila(ID);
        /* if (dao != null){
             exito = true;
         }else{
