@@ -3,6 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
+import java.beans.PropertyVetoException;
+import javax.swing.*;
 
 /**
  *
@@ -21,10 +23,24 @@ public class VentanaInicio extends javax.swing.JFrame {
      */
     public VentanaInicio() {
         initComponents();
-        perEdit.setVisible(true);
+        contraseña.setText("");
+        añadirOpciones(false);
         destopPanel.add(perEdit);
     }
     
+    private boolean comprovarUsuario(String usuario){
+		
+		if (usuario.equals("admin")) {
+			return true;
+		}
+		return false;
+	}
+	private boolean comprovarPassword(String pasword) {
+		if(pasword.equals("2008admin")) {
+			return true;
+		}
+		return false;
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,8 +54,17 @@ public class VentanaInicio extends javax.swing.JFrame {
         jMenuItem4 = new javax.swing.JMenuItem();
         jDialog1 = new javax.swing.JDialog();
         destopPanel = new javax.swing.JDesktopPane();
-        jOptionPane1 = new javax.swing.JOptionPane();
-        jMenuBar1 = new javax.swing.JMenuBar();
+        InicioSecion = new javax.swing.JInternalFrame();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        Usuario = new javax.swing.JTextArea();
+        contraseña = new javax.swing.JPasswordField();
+        BEntrar = new javax.swing.JButton();
+        problema1 = new javax.swing.JLabel();
+        problema2 = new javax.swing.JLabel();
+        MenuBarOP = new javax.swing.JMenuBar();
         MenuPersonal = new javax.swing.JMenu();
         PersonalAlta = new javax.swing.JMenuItem();
         PersonalBaja = new javax.swing.JMenuItem();
@@ -64,23 +89,97 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        destopPanel.setLayer(jOptionPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        InicioSecion.setVisible(true);
+
+        jLabel1.setText("Iniciar secion");
+
+        jLabel2.setText("Usuario");
+
+        jLabel3.setText("Contraseña");
+
+        Usuario.setColumns(20);
+        Usuario.setRows(5);
+        jScrollPane1.setViewportView(Usuario);
+
+        contraseña.setText("jPasswordField2");
+        contraseña.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                contraseñaActionPerformed(evt);
+            }
+        });
+
+        BEntrar.setText("Entrar");
+        BEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BEntrarActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout InicioSecionLayout = new javax.swing.GroupLayout(InicioSecion.getContentPane());
+        InicioSecion.getContentPane().setLayout(InicioSecionLayout);
+        InicioSecionLayout.setHorizontalGroup(
+            InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InicioSecionLayout.createSequentialGroup()
+                .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(InicioSecionLayout.createSequentialGroup()
+                        .addGap(159, 159, 159)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(InicioSecionLayout.createSequentialGroup()
+                        .addGap(156, 156, 156)
+                        .addComponent(BEntrar))
+                    .addGroup(InicioSecionLayout.createSequentialGroup()
+                        .addGap(49, 49, 49)
+                        .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel2))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(problema1)
+                            .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
+                                .addComponent(contraseña))
+                            .addComponent(problema2))))
+                .addContainerGap(32, Short.MAX_VALUE))
+        );
+        InicioSecionLayout.setVerticalGroup(
+            InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(InicioSecionLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(problema1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addComponent(problema2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(BEntrar)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        destopPanel.setLayer(InicioSecion, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout destopPanelLayout = new javax.swing.GroupLayout(destopPanel);
         destopPanel.setLayout(destopPanelLayout);
         destopPanelLayout.setHorizontalGroup(
             destopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(destopPanelLayout.createSequentialGroup()
-                .addGap(301, 301, 301)
-                .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(342, Short.MAX_VALUE))
+                .addGap(245, 245, 245)
+                .addComponent(InicioSecion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(249, Short.MAX_VALUE))
         );
         destopPanelLayout.setVerticalGroup(
             destopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(destopPanelLayout.createSequentialGroup()
-                .addGap(211, 211, 211)
-                .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(274, Short.MAX_VALUE))
+                .addGap(139, 139, 139)
+                .addComponent(InicioSecion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(227, Short.MAX_VALUE))
         );
 
         MenuPersonal.setText("Personal");
@@ -104,7 +203,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         PersonalConsulta.setText("Consultar");
         MenuPersonal.add(PersonalConsulta);
 
-        jMenuBar1.add(MenuPersonal);
+        MenuBarOP.add(MenuPersonal);
 
         MenuCita.setText("Cita");
 
@@ -127,9 +226,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         MenuCita.add(CitaEditar);
 
-        jMenuBar1.add(MenuCita);
+        MenuBarOP.add(MenuCita);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(MenuBarOP);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -161,6 +260,55 @@ public class VentanaInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_CitaEditarActionPerformed
 
+    private void contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_contraseñaActionPerformed
+
+    private void BEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEntrarActionPerformed
+        // TODO add your handling code here:
+        
+        problema1.setText("");
+			problema2.setText("");
+			String usuarios = Usuario.getText();
+			String contrs = new String(contraseña.getPassword());
+
+			boolean usuarioValido = false;
+			boolean passwordValido = false;
+
+			// Validación de usuario
+			if (usuarios.isEmpty()) {
+			    problema1.setText("Ingresa el usuario");
+			} else if (!comprovarUsuario(usuarios)) {
+			    problema1.setText("Usuario incorrecto");
+			} else {
+			    usuarioValido = true;
+			}
+
+			// Validación de contraseña
+			if (contrs.isEmpty()) {
+			    problema2.setText("Ingresa la contraseña");
+			} else if (!comprovarPassword(contrs)) {
+			    problema2.setText("Contraseña incorrecta");
+			} else {
+			    passwordValido = true;
+			}
+
+			if (usuarioValido && passwordValido) {
+				JOptionPane.showMessageDialog(null, "¡Bienvenido, " + usuarios + "!","Login Exitoso", // Título del diálogo
+				        JOptionPane.INFORMATION_MESSAGE );
+				try {
+					InicioSecion.setClosed(true);
+				} catch (PropertyVetoException e1) {
+					e1.printStackTrace();
+				}
+				añadirOpciones(true);
+			}
+    }//GEN-LAST:event_BEntrarActionPerformed
+
+    
+    private void añadirOpciones(boolean accion){
+        MenuBarOP.setVisible(accion);
+    }
     /**
      * @param args the command line arguments
      */
@@ -190,26 +338,35 @@ public class VentanaInicio extends javax.swing.JFrame {
     }
     
     public void ShowMessage(String message) {
-		jOptionPane1.showMessageDialog(this, 
+		JOptionPane.showMessageDialog(this, 
 		        "Ocurrio un error\n"+
 		        		message, 
 		        "Error", 
-		        jOptionPane1.INFORMATION_MESSAGE);
+		        JOptionPane.INFORMATION_MESSAGE);
 	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BEntrar;
     private javax.swing.JMenuItem CitaAgendar;
     private javax.swing.JMenuItem CitaConsulta;
     private javax.swing.JMenuItem CitaEditar;
+    private javax.swing.JInternalFrame InicioSecion;
+    private javax.swing.JMenuBar MenuBarOP;
     private javax.swing.JMenu MenuCita;
     private javax.swing.JMenu MenuPersonal;
     private javax.swing.JMenuItem PersonalAlta;
     private javax.swing.JMenuItem PersonalBaja;
     private javax.swing.JMenuItem PersonalConsulta;
+    private javax.swing.JTextArea Usuario;
+    private javax.swing.JPasswordField contraseña;
     private javax.swing.JDesktopPane destopPanel;
     private javax.swing.JDialog jDialog1;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JOptionPane jOptionPane1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JLabel problema1;
+    private javax.swing.JLabel problema2;
     // End of variables declaration//GEN-END:variables
 }

@@ -5,7 +5,7 @@
 package com.playwindow.proyecto_final_tallerbasesdatos.Controlador;
 
 import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.*;
-import com.playwindow.proyecto_final_tallerbasesdatos.modelos.*;
+import com.playwindow.proyecto_final_tallerbasesdatos.Modelos.*;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
