@@ -52,25 +52,27 @@ public class VentanaInicio extends javax.swing.JFrame {
         ConexionBD conexion = new ConexionBD();
         
          // 2. CREAR una instancia de la clase PersonaDAO
-        PersonaDAO dao = new PersonaDAO(interfaz);
+        PersonalDAO dao = new PersonalDAO(interfaz);
 
         // Datos para la actualización (asegúrate de que los tipos coincidan)
-        int dni = 100;
-        String nombres = "2";
-        String primerAP = "2";
-        String segundoAP = "2";
-        String fechaNaci = "1800-10-10";
-        String telefono = "5551234567";
+        int dni = 103;
+        int ID = 4;
+        String cam1 = "Doctor";
+        String camp2 = "Cardiología";
+        String camp3 = "Cardiólogo";
+        String camp4 = "2";
+        String camp5 = "5551234567";
+        float campo10 = 72000.00f;
 
         // 3. INVOCAR el método usando la instancia y las CORRECCIONES (comillas dobles)
         
         boolean exito;
-        dao.listarPersonas();
-        if (dao != null){
+        exito = dao.actualizarPersonal(ID, dni, cam1, camp2, camp3, campo10);
+       /* if (dao != null){
             exito = true;
         }else{
             exito = false;
-        }
+        }*/
 
         // Opcional: Imprimir el resultado para verificar
         if (exito) {
