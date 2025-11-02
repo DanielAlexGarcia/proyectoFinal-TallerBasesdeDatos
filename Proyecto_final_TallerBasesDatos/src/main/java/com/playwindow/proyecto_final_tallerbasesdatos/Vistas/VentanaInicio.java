@@ -10,6 +10,8 @@ package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
  */
 public class VentanaInicio extends javax.swing.JFrame {
     
+    public static VentanaInicio interfaz;
+    
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaInicio.class.getName());
     PersoEdit perEdit = new PersoEdit();
     
@@ -22,6 +24,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         perEdit.setVisible(true);
         destopPanel.add(perEdit);
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -33,7 +36,9 @@ public class VentanaInicio extends javax.swing.JFrame {
     private void initComponents() {
 
         jMenuItem4 = new javax.swing.JMenuItem();
+        jDialog1 = new javax.swing.JDialog();
         destopPanel = new javax.swing.JDesktopPane();
+        jOptionPane1 = new javax.swing.JOptionPane();
         jMenuBar1 = new javax.swing.JMenuBar();
         MenuPersonal = new javax.swing.JMenu();
         PersonalAlta = new javax.swing.JMenuItem();
@@ -46,17 +51,36 @@ public class VentanaInicio extends javax.swing.JFrame {
 
         jMenuItem4.setText("jMenuItem4");
 
+        javax.swing.GroupLayout jDialog1Layout = new javax.swing.GroupLayout(jDialog1.getContentPane());
+        jDialog1.getContentPane().setLayout(jDialog1Layout);
+        jDialog1Layout.setHorizontalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        jDialog1Layout.setVerticalGroup(
+            jDialog1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        destopPanel.setLayer(jOptionPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout destopPanelLayout = new javax.swing.GroupLayout(destopPanel);
         destopPanel.setLayout(destopPanelLayout);
         destopPanelLayout.setHorizontalGroup(
             destopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 905, Short.MAX_VALUE)
+            .addGroup(destopPanelLayout.createSequentialGroup()
+                .addGap(301, 301, 301)
+                .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(342, Short.MAX_VALUE))
         );
         destopPanelLayout.setVerticalGroup(
             destopPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 575, Short.MAX_VALUE)
+            .addGroup(destopPanelLayout.createSequentialGroup()
+                .addGap(211, 211, 211)
+                .addComponent(jOptionPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(274, Short.MAX_VALUE))
         );
 
         MenuPersonal.setText("Personal");
@@ -161,6 +185,17 @@ public class VentanaInicio extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(() -> new VentanaInicio().setVisible(true));
     }
+    public static VentanaInicio getinterfaz(){
+        return interfaz;
+    }
+    
+    public void ShowMessage(String message) {
+		jOptionPane1.showMessageDialog(this, 
+		        "Ocurrio un error\n"+
+		        		message, 
+		        "Error", 
+		        jOptionPane1.INFORMATION_MESSAGE);
+	}
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem CitaAgendar;
@@ -172,7 +207,9 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuItem PersonalBaja;
     private javax.swing.JMenuItem PersonalConsulta;
     private javax.swing.JDesktopPane destopPanel;
+    private javax.swing.JDialog jDialog1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem4;
+    private javax.swing.JOptionPane jOptionPane1;
     // End of variables declaration//GEN-END:variables
 }

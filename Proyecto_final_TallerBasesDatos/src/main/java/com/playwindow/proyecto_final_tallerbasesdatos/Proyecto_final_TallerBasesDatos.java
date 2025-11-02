@@ -3,7 +3,6 @@
  */
 
 package com.playwindow.proyecto_final_tallerbasesdatos;
-import com.playwindow.proyecto_final_tallerbasesdatos.Modelos.*;
 import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.*;
 
 /**
