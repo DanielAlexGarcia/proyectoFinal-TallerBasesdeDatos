@@ -23,12 +23,9 @@ public abstract class AbstracDAO {
     // Se recomienda usar el tipo de Interfaz base si existe, o solo la clase VentanaInicio
     protected VentanaInicio Interfaz; 
     
-    public AbstracDAO(VentanaInicio interfaz){
-        if(interfaz != null) {
-            this.Interfaz = interfaz;
-        }
+    protected void setVentanaInicio(VentanaInicio interfaz){
+        this.Interfaz = interfaz;
     }
-    
     
     protected final boolean ejecutarCRUDTemplate(String sql, StatementSetter setter, String nombreEntidad) {
         try (PreparedStatement stmt = ConexionBD.getInstancia().getConnection().prepareStatement(sql)) {
@@ -58,9 +55,21 @@ public abstract class AbstracDAO {
         void setParameters(PreparedStatement stmt) throws SQLException;
     }
     
+    protected ResultSet listaEntity(String entity) {
+	        String sql = "SELECT * FROM "+ entity;
+	        try {
+	        	PreparedStatement stmt = ConexionBD.getInstancia().getConnection().prepareStatement(sql);
+	            return stmt.executeQuery();
+	        } catch (SQLException e) {
+	            System.out.println("Error al listar "+entity+": " + e.getMessage());
+	            
+	            return null;
+	        }
+	    } 
+    
     
     // Método para ejecutar comandos directos
-    private final boolean ejecutarComandoDirecto(String comando){
+    protected final boolean ejecutarComandoDirecto(String comando){
         // Mantenemos la implementación original ya que no se ajusta al Template CRUD
          java.sql.Connection conn = ConexionBD.getInstancia().getConnection();
             try (java.sql.Statement directStmt = conn.createStatement()) {
