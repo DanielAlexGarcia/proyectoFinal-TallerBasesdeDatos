@@ -53,14 +53,14 @@ public class VentanaInicio extends javax.swing.JFrame {
         ConexionBD conexion = new ConexionBD();
         
          // 2. CREAR una instancia de la clase PersonaDAO
-        PersonaDAO dao = new PersonaDAO(interfaz);
+        PersonalDAO dao = new PersonalDAO(interfaz);
 
         // Datos para la actualización (asegúrate de que los tipos coincidan)
-        int dni = 201;
-        int ID = 1;
-        String cam1 = "Ana María";
-        String camp2 = "García";
-        String camp3 = "López";
+        int dni = 105;
+        int ID = 4;
+        String cam1 = "Doctor";
+        String camp2 = "Cardiología";
+        String camp3 = "Cardiólogo";
         String camp4 = "1985-10-05";
         String camp5 = "5";
         float campo10 = 72000.00f;
@@ -68,7 +68,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         // 3. INVOCAR el método usando la instancia y las CORRECCIONES (comillas dobles)
         
         boolean exito;
-        dao.listarPersonas();
+        dao.listarPersonal();
        /* if (dao != null){
             exito = true;
         }else{
@@ -76,7 +76,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         }*/
 
         // Opcional: Imprimir el resultado para verificar
-        if (dao != null) {
+        if (/*exito*/dao != null) {
             System.out.println("✅ Actualización de la persona con DNI " + dni + " exitosa.");
         } else {
             System.out.println("❌ Fallo en la actualización. Revisa la consola para ver el error de SQL/BD.");
