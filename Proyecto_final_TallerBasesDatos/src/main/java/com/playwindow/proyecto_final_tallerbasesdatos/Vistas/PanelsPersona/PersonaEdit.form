@@ -23,48 +23,59 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="190" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel4" alignment="1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabel5" alignment="1" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="RBNombres" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="RBPrimerAP" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="RBSegundoAP" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="RBFechaNaci" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="RBTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextField1" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField2" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextField3" min="-2" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                          <Component id="txtTelefono" alignment="0" pref="131" max="32767" attributes="0"/>
+                          <Component id="txtFechaNaci" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSegundoAP" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtPrimerAP" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtNombres" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace pref="236" max="32767" attributes="0"/>
+              <EmptySpace pref="178" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Group type="102" alignment="0" attributes="0">
+          <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="2" attributes="0">
+                  <Group type="102" alignment="2" attributes="0">
+                      <Component id="txtNombres" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="6" attributes="0"/>
+                      <Component id="txtPrimerAP" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="6" attributes="0"/>
+                      <Component id="txtSegundoAP" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="6" attributes="0"/>
+                      <Component id="txtFechaNaci" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="6" pref="6" max="6" attributes="0"/>
+                      <Component id="txtTelefono" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Group type="102" alignment="2" attributes="0">
+                      <Component id="RBNombres" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="11" pref="11" max="11" attributes="0"/>
+                      <Component id="RBPrimerAP" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="11" pref="11" max="11" attributes="0"/>
+                      <Component id="RBSegundoAP" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="11" pref="11" max="11" attributes="0"/>
+                      <Component id="RBFechaNaci" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="11" pref="11" max="11" attributes="0"/>
+                      <Component id="RBTelefono" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField2" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jTextField3" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace max="-2" attributes="0"/>
-              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="192" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -75,39 +86,39 @@
         <Property name="text" type="java.lang.String" value="Editar persona"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel2">
+    <Component class="javax.swing.JTextField" name="txtNombres">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtPrimerAP">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtSegundoAP">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtFechaNaci">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtTelefono">
+    </Component>
+    <Component class="javax.swing.JRadioButton" name="RBNombres">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombres"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField1"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel3">
+    <Component class="javax.swing.JRadioButton" name="RBPrimerAP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Primer apellido"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField2">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField2"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JLabel" name="jLabel4">
+    <Component class="javax.swing.JRadioButton" name="RBSegundoAP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Segundo apellido"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="jTextField3">
+    <Component class="javax.swing.JRadioButton" name="RBFechaNaci">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jTextField3"/>
+        <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel5">
+    <Component class="javax.swing.JRadioButton" name="RBTelefono">
       <Properties>
-        <Property name="text" type="java.lang.String" value="jLabel5"/>
+        <Property name="text" type="java.lang.String" value="Telefono de contacto"/>
       </Properties>
     </Component>
   </SubComponents>

@@ -24,6 +24,10 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     public final String PanelEdit = "PanelEditPersona";
     public final String PanelConsult = "PanelConsultPersona";
     
+    private PersonaAlta perAlta = new PersonaAlta();
+    private PersonaBaja perBaja = new PersonaBaja();
+    private PersonaEdit perEdit = new PersonaEdit();
+    
     /**
      * Creates new form PersoEdit
      */
@@ -37,12 +41,13 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         cardLayout = new CardLayout();
         panelDeContenido = new JPanel(cardLayout);
 
-        panelDeContenido.add(new PersonaAlta(), PanelAlta);
-        panelDeContenido.add(new PersonaBaja(), PanelBaja);
-        panelDeContenido.add (new PersonaEdit(), PanelEdit);
+        panelDeContenido.add(perAlta, PanelAlta);
+        panelDeContenido.add(perBaja, PanelBaja);
+        panelDeContenido.add (perEdit, PanelEdit);
 
         getContentPane().removeAll(); // quitamos el layout vacío generado por NetBeans
         getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(jToolBar1, BorderLayout.NORTH);
         getContentPane().add(panelDeContenido, BorderLayout.CENTER);
         
         cardLayout.show(panelDeContenido, PanelAlta);
@@ -52,6 +57,13 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     }
     protected void setCardLayaout(String namePanel){
         cardLayout.show(panelDeContenido, namePanel);
+        if(namePanel.equals(PanelAlta)){
+            perAlta.setVaciarComponentes();
+        }else if (namePanel.equals(PanelBaja)){
+            perBaja.setVaciarComponentes();
+        }else if (namePanel.equals(PanelEdit)){
+            perEdit.setVaciarComponentes();
+        }
     }
 
     /**
@@ -63,41 +75,83 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenu2 = new javax.swing.JMenu();
-        jMenu3 = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        jToolBar1 = new javax.swing.JToolBar();
+        BAñadir = new javax.swing.JButton();
+        Beliminar = new javax.swing.JButton();
+        BEdit = new javax.swing.JButton();
 
-        jMenu1.setText("Añadir");
-        jMenuBar1.add(jMenu1);
+        jMenuItem1.setText("jMenuItem1");
 
-        jMenu2.setText("Eliminar");
-        jMenuBar1.add(jMenu2);
+        jToolBar1.setRollover(true);
 
-        jMenu3.setText("Editar");
-        jMenuBar1.add(jMenu3);
+        BAñadir.setText("Añadir");
+        BAñadir.setFocusable(false);
+        BAñadir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BAñadir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BAñadir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BAñadirActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(BAñadir);
 
-        setJMenuBar(jMenuBar1);
+        Beliminar.setText("Eliminar");
+        Beliminar.setFocusable(false);
+        Beliminar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        Beliminar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        Beliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BeliminarActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(Beliminar);
+
+        BEdit.setText("Editar");
+        BEdit.setFocusable(false);
+        BEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BEditActionPerformed(evt);
+            }
+        });
+        jToolBar1.add(BEdit);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 807, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 807, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 468, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 466, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BeliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BeliminarActionPerformed
+        setCardLayaout(PanelBaja);
+    }//GEN-LAST:event_BeliminarActionPerformed
+
+    private void BAñadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAñadirActionPerformed
+        setCardLayaout(PanelAlta);
+    }//GEN-LAST:event_BAñadirActionPerformed
+
+    private void BEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEditActionPerformed
+        setCardLayaout(PanelEdit);
+    }//GEN-LAST:event_BEditActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
-    private javax.swing.JMenu jMenu3;
-    private javax.swing.JMenuBar jMenuBar1;
+    private javax.swing.JButton BAñadir;
+    private javax.swing.JButton BEdit;
+    private javax.swing.JButton Beliminar;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JToolBar jToolBar1;
     // End of variables declaration//GEN-END:variables
 }

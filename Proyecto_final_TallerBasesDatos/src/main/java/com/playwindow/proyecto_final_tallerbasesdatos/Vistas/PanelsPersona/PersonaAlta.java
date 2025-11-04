@@ -5,6 +5,8 @@
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsPersona;
 
 import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.formatosTextArea;
+import javax.swing.JFormattedTextField;
+import javax.swing.JTextArea;
 
 /**
  *
@@ -19,10 +21,12 @@ public class PersonaAlta extends javax.swing.JPanel {
         initComponents();
         formatosTextArea.setSoloLetras(txtNombres, 70);
         formatosTextArea.setSoloLetras(txtPrimerAP, 45);
-        formatosTextArea.setSoloLetras(txtSegundpAP, 45);
+        formatosTextArea.setSoloLetras(txtSegundoAP, 45);
         formatosTextArea.FormatoFecha(txtFechaNaci);
         formatosTextArea.FormatoTelefono(txtTelefono);
     }
+
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,38 +39,24 @@ public class PersonaAlta extends javax.swing.JPanel {
 
         tittleAñadirPersona = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        txtNombres = new javax.swing.JTextArea();
         jLabel3 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        txtPrimerAP = new javax.swing.JTextArea();
         jLabel4 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        txtSegundpAP = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         txtFechaNaci = new javax.swing.JFormattedTextField();
         txtTelefono = new javax.swing.JFormattedTextField();
+        BAñadirPersona = new javax.swing.JButton();
+        txtNombres = new javax.swing.JTextField();
+        txtPrimerAP = new javax.swing.JTextField();
+        txtSegundoAP = new javax.swing.JTextField();
 
         tittleAñadirPersona.setText("Añadir Persona");
 
         jLabel2.setText("nombres");
 
-        txtNombres.setColumns(20);
-        txtNombres.setRows(5);
-        jScrollPane1.setViewportView(txtNombres);
-
         jLabel3.setText("Primer apellido");
 
-        txtPrimerAP.setColumns(20);
-        txtPrimerAP.setRows(5);
-        jScrollPane2.setViewportView(txtPrimerAP);
-
         jLabel4.setText("Segundo apellido");
-
-        txtSegundpAP.setColumns(20);
-        txtSegundpAP.setRows(5);
-        jScrollPane3.setViewportView(txtSegundpAP);
 
         jLabel5.setText("Fecha de nacimiento");
 
@@ -80,6 +70,8 @@ public class PersonaAlta extends javax.swing.JPanel {
         });
 
         txtTelefono.setText("00+ 000 000 0000");
+
+        BAñadirPersona.setText("Añadir persona");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -100,11 +92,14 @@ public class PersonaAlta extends javax.swing.JPanel {
                             .addComponent(jLabel6))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(jScrollPane2)
-                            .addComponent(jScrollPane3)
                             .addComponent(txtFechaNaci)
-                            .addComponent(txtTelefono))))
+                            .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
+                            .addComponent(txtNombres)
+                            .addComponent(txtPrimerAP)
+                            .addComponent(txtSegundoAP)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(334, 334, 334)
+                        .addComponent(BAñadirPersona)))
                 .addContainerGap(213, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -112,18 +107,18 @@ public class PersonaAlta extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
                 .addComponent(tittleAñadirPersona)
-                .addGap(41, 41, 41)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGap(36, 36, 36)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtPrimerAP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtSegundoAP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -132,29 +127,38 @@ public class PersonaAlta extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel6)
                     .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(BAñadirPersona)
+                .addContainerGap(158, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    public void setVaciarComponentes(){
+        txtNombres.setText("");
+        txtPrimerAP.setText("");
+        txtSegundoAP.setText("");
+        txtFechaNaci.setText("YYYY-MM-DD");
+        txtTelefono.setText("00+ 000 000 0000");
+    }
+    
+    
     private void txtFechaNaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNaciActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFechaNaciActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BAñadirPersona;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JLabel tittleAñadirPersona;
     private javax.swing.JFormattedTextField txtFechaNaci;
-    private javax.swing.JTextArea txtNombres;
-    private javax.swing.JTextArea txtPrimerAP;
-    private javax.swing.JTextArea txtSegundpAP;
+    private javax.swing.JTextField txtNombres;
+    private javax.swing.JTextField txtPrimerAP;
+    private javax.swing.JTextField txtSegundoAP;
     private javax.swing.JFormattedTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

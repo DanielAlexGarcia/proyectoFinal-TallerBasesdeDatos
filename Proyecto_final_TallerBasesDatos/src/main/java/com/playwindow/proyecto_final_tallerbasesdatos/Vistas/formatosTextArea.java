@@ -27,19 +27,43 @@ public class formatosTextArea {
      * @param textArea El JTextArea a formatear.
      * @param maxChars El límite de caracteres.
      */
-    public static void setSoloLetras(JTextArea textArea, int maxChars) {
-        // [a-zA-Z\\s]+ permite letras mayúsculas, minúsculas y espacios.
-        applyDocumentFilter(textArea, new MaxCharDocumentFilter(maxChars, "[a-zA-Z\\s]*"));
+    /**
+     * Aplica un DocumentFilter a un JTextComponent.
+     * Es una función auxiliar necesaria para el uso de los métodos de filtro.
+     * @param comp El componente de texto (JTextArea o JTextField)
+     * @param filter El DocumentFilter a aplicar.
+     */
+    private static void applyDocumentFilter(JTextComponent comp, DocumentFilter filter) {
+        if (comp.getDocument() instanceof AbstractDocument) {
+            AbstractDocument doc = (AbstractDocument) comp.getDocument();
+            doc.setDocumentFilter(filter);
+        } else {
+            System.err.println("El documento del componente no es AbstractDocument, no se puede aplicar el filtro.");
+        }
+    }
+
+    // --- Métodos Modificados para JTextComponent ---
+
+    /**
+     * Limita el JTextComponent (JTextArea/JTextField) a letras (a-z, A-Z) y espacios, con un límite de caracteres.
+     * @param textComponent El JTextComponent a formatear (JTextArea o JTextField).
+     * @param maxChars El límite máximo de caracteres.
+     */
+    public static void setSoloLetras(JTextComponent textComponent, int maxChars) {
+        // [a-zA-Z\\s]* permite letras mayúsculas, minúsculas y espacios.
+        // Asume que MaxCharDocumentFilter ya ha sido definido.
+        applyDocumentFilter(textComponent, new MaxCharDocumentFilter(maxChars, "[a-zA-Z\\s]*"));
     }
 
     /**
-     * Limita el JTextArea a un número máximo de caracteres, permitiendo cualquier tipo.
-     * @param textArea El JTextArea a formatear.
+     * Limita el JTextComponent (JTextArea/JTextField) a un número máximo de caracteres, permitiendo cualquier tipo.
+     * @param textComponent El JTextComponent a formatear (JTextArea o JTextField).
      * @param maxChars El límite de caracteres.
      */
-    public static void setMaxCaracteres(JTextArea textArea, int maxChars) {
+    public static void setMaxCaracteres(JTextComponent textComponent, int maxChars) {
         // null en el regexString permite cualquier carácter.
-        applyDocumentFilter(textArea, new MaxCharDocumentFilter(maxChars, null));
+        // Asume que MaxCharDocumentFilter ya ha sido definido.
+        applyDocumentFilter(textComponent, new MaxCharDocumentFilter(maxChars, null));
     }
     
     public static void FormatoTelefono(JFormattedTextField textField) {
@@ -96,18 +120,7 @@ public class formatosTextArea {
             System.err.println("Error al crear la máscara de hora: " + e.getMessage());
         }
     }
-    
-    // --- MÉTODO PRIVADO PARA APLICAR EL FILTRO ---
-
-    /**
-     * Método auxiliar para aplicar un DocumentFilter a un JTextArea.
-     * @param textArea El componente de texto.
-     * @param filter El DocumentFilter a aplicar.
-     */
-    private static void applyDocumentFilter(JTextArea textArea, DocumentFilter filter) {
-        AbstractDocument doc = (AbstractDocument) textArea.getDocument();
-        doc.setDocumentFilter(filter);
-    }
+   
 }
 
 

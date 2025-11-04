@@ -4,6 +4,8 @@
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsPersona;
 
+import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.formatosTextArea;
+
 /**
  *
  * @author daniel
@@ -17,6 +19,17 @@ public class PersonaBaja extends javax.swing.JPanel {
         initComponents();
         grupoOpcion.add(RBID);
         grupoOpcion.add(RBNPAP);
+        
+        formatosTextArea.setSoloLetras(txtFieldNombres, 70);
+        formatosTextArea.setSoloLetras(txtFieldPrimerAP, 45);
+        
+        
+    }
+    
+    public void setVaciarComponentes(){
+        txtFieldID.setText("");
+        txtFieldNombres.setText("");
+        txtFieldPrimerAP.setText("");
     }
 
     /**
@@ -31,7 +44,6 @@ public class PersonaBaja extends javax.swing.JPanel {
         buttonGroup1 = new javax.swing.ButtonGroup();
         grupoOpcion = new javax.swing.ButtonGroup();
         TittlePersonaBaja = new javax.swing.JLabel();
-        txtFieldID = new javax.swing.JTextField();
         RBID = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -42,6 +54,7 @@ public class PersonaBaja extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
         txtFieldPrimerAP = new javax.swing.JTextField();
         BBuscar = new javax.swing.JButton();
+        txtFieldID = new javax.swing.JTextField();
 
         TittlePersonaBaja.setText("Elimiar persona");
 
@@ -92,11 +105,11 @@ public class PersonaBaja extends javax.swing.JPanel {
             .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(241, 241, 241)
                         .addComponent(RBID)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(260, 260, 260)
                         .addComponent(TittlePersonaBaja))
@@ -128,9 +141,9 @@ public class PersonaBaja extends javax.swing.JPanel {
                 .addComponent(TittlePersonaBaja)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RBID)
-                    .addComponent(BDelete))
+                    .addComponent(BDelete)
+                    .addComponent(txtFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(RBNPAP)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
