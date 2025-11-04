@@ -4,6 +4,7 @@
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
 
+import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsPersona.*;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -28,6 +29,8 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         
         initComponents();
         
+        
+        
         // Inicializar el CardLayout y el contenedor principal
         cardLayout = new CardLayout();
         panelDeContenido = new JPanel(cardLayout);
@@ -51,7 +54,7 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        personaAlta1 = new com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PersonaAlta();
+        personaAlta1 = new com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsPersona.PersonaAlta();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -93,6 +96,6 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
-    private com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PersonaAlta personaAlta1;
+    private com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsPersona.PersonaAlta personaAlta1;
     // End of variables declaration//GEN-END:variables
 }

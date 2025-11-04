@@ -58,7 +58,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Component class="com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PersonaAlta" name="personaAlta1">
+    <Component class="com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsPersona.PersonaAlta" name="personaAlta1">
     </Component>
   </SubComponents>
 </Form>
