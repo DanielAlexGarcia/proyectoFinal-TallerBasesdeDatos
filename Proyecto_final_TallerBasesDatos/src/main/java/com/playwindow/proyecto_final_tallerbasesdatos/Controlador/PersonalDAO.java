@@ -138,7 +138,7 @@ public class PersonalDAO extends AbstracDAO{
     
     public ResultSet listarPersonal() {
 	        return listaEntity("Personal");
-}
+    }
 
     private BigDecimal conversorfloat (float salarios){
        String salarioString = Float.toString(salarios);

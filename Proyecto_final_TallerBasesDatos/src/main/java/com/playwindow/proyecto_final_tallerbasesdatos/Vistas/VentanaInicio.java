@@ -335,7 +335,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void PersonalAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalAltaActionPerformed
-        // TODO add your handling code here:
+        perEdit.setVisible(true);
     }//GEN-LAST:event_PersonalAltaActionPerformed
 
     private void PersonalBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalBajaActionPerformed

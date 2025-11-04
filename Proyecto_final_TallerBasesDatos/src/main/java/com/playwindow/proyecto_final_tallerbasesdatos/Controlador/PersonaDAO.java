@@ -103,7 +103,7 @@ public class PersonaDAO extends AbstracDAO {
     boolean exito = ejecutarCRUDTemplate(sql, setter, "insertar Persona");
     
     if (insertarManual) {
-        ejecutarComandoDirecto("set identity_insert persona on");
+        ejecutarComandoDirecto("set identity_insert persona off");
     }
     
     return exito;

@@ -4,17 +4,42 @@
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
 
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author daniel
  */
 public class PersoEdit extends javax.swing.JInternalFrame {
 
+    private JPanel panelDeContenido;
+    private CardLayout cardLayout;
+    
+    public static final String NOMBRE_PANEL_A = "PanelAltaPersona";
+    public static final String NOMBRE_PANEL_B = "PanelReportes";
+    public static final String NOMBRE_PANEL_C = "PanelConfiguracion";
+    
     /**
      * Creates new form PersoEdit
      */
     public PersoEdit() {
+        
         initComponents();
+        
+        // Inicializar el CardLayout y el contenedor principal
+        cardLayout = new CardLayout();
+        panelDeContenido = new JPanel(cardLayout);
+
+        // 3. Añadir todos los JPanel Forms al contenedor principal
+        // *Reemplaza 'PanelAltaPersona', 'PanelReportes', etc. con tus clases de JPanel*
+        panelDeContenido.add(new PersonaAlta(), NOMBRE_PANEL_A );
+
+        // Añadir el contenedor con CardLayout al centro del JFrame
+        this.add(panelDeContenido, BorderLayout.CENTER);
+        
+        cardLayout.show(panelDeContenido, NOMBRE_PANEL_A);
     }
 
     /**
@@ -26,6 +51,7 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        personaAlta1 = new com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PersonaAlta();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -46,11 +72,16 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 743, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(personaAlta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 390, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(personaAlta1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -62,5 +93,6 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
     private javax.swing.JMenuBar jMenuBar1;
+    private com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PersonaAlta personaAlta1;
     // End of variables declaration//GEN-END:variables
 }
