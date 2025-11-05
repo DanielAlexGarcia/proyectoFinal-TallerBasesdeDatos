@@ -34,6 +34,7 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     public PersoEdit() {
         
         initComponents();
+        this.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         iniciarCardLayout();
     }
     
@@ -50,8 +51,6 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         getContentPane().add(jToolBar1, BorderLayout.NORTH);
         getContentPane().add(panelDeContenido, BorderLayout.CENTER);
         
-        cardLayout.show(panelDeContenido, PanelAlta);
-        
         revalidate();
         repaint();
     }
@@ -62,6 +61,19 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         }else if (namePanel.equals(PanelBaja)){
             perBaja.setVaciarComponentes();
         }else if (namePanel.equals(PanelEdit)){
+            perEdit.setVaciarComponentes();
+        }
+    }
+    
+    public void setWindowShow(int numVentana){
+        if(numVentana == 1){
+            setCardLayaout(PanelAlta);
+            perAlta.setVaciarComponentes();
+        }else if (numVentana == 2){
+            setCardLayaout(PanelBaja);
+            perBaja.setVaciarComponentes();
+        }else if (numVentana == 3){
+            setCardLayaout(PanelEdit);
             perEdit.setVaciarComponentes();
         }
     }
@@ -82,6 +94,8 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         BEdit = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
+
+        setClosable(true);
 
         jToolBar1.setRollover(true);
 

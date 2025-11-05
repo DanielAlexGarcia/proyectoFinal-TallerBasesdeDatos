@@ -6,6 +6,7 @@ package com.playwindow.proyecto_final_tallerbasesdatos.Controlador;
 
 import com.playwindow.proyecto_final_tallerbasesdatos.Modelos.Persona;
 import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.VentanaInicio;
+import java.sql.Connection;
 import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -79,5 +80,45 @@ public abstract class AbstracDAO {
             System.err.println("Error al ejecutar comando directo: " + e.getMessage());
             return false;
         }
+    }
+    
+    protected final ResultSet ejecutarQueryTemplate(String sql, StatementSetter setter, String nombreOperacion) {
+    PreparedStatement stmt = null;
+    ResultSet rs = null;
+    
+    try {
+        // PASO FIJO: Obtener la conexión y preparar la sentencia
+        // No usamos try-with-resources aquí para mantener el stmt y la conexión abiertos.
+        Connection conn = ConexionBD.getInstancia().getConnection();
+        stmt = conn.prepareStatement(sql);
+        
+        // PASO ABSTRACTO: Establecer los parámetros (definido por el llamador)
+        setter.setParameters(stmt);
+        
+        // PASO FIJO: Ejecutar la consulta y retornar el ResultSet
+        rs = stmt.executeQuery();
+        
+        // IMPORTANTE: En este punto, no cerramos ni stmt ni rs.
+        return rs;
+        
+    } catch (SQLException e) {
+        // PASO FIJO: Manejo de excepciones
+        System.out.println("Error al " + nombreOperacion + ": " + e.getMessage());
+        
+        // Notificación a la UI (asumiendo que 'Interfaz' es la ventana principal)
+        // if (Interfaz != null) {
+        //     Interfaz.ShowMessage("Error al " + nombreOperacion + ": \n" + e.getMessage());
+        // }
+        
+        // Limpieza de recursos EN CASO DE ERROR
+        try {
+            if (rs != null) rs.close();
+            if (stmt != null) stmt.close();
+        } catch (SQLException ex) {
+            System.err.println("Error al cerrar recursos después de fallo: " + ex.getMessage());
+        }
+        
+        return null;
+    }
     }
 }

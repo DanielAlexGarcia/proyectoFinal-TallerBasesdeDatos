@@ -19,11 +19,10 @@ public class PersonaAlta extends javax.swing.JPanel {
      */
     public PersonaAlta() {
         initComponents();
-        formatosTextArea.setSoloLetras(txtNombres, 70);
-        formatosTextArea.setSoloLetras(txtPrimerAP, 45);
-        formatosTextArea.setSoloLetras(txtSegundoAP, 45);
-        formatosTextArea.FormatoFecha(txtFechaNaci);
-        formatosTextArea.FormatoTelefono(txtTelefono);
+        formatosTextArea.setSoloLetras(txtDepartamento, 70);
+        formatosTextArea.setSoloLetras(txtRol, 70);
+        formatosTextArea.setSoloLetras(txtEspecialidad, 70);
+        formatosTextArea.FormatoSalario(txtSalario);
     }
 
     
@@ -43,35 +42,28 @@ public class PersonaAlta extends javax.swing.JPanel {
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        txtFechaNaci = new javax.swing.JFormattedTextField();
-        txtTelefono = new javax.swing.JFormattedTextField();
         BAñadirPersona = new javax.swing.JButton();
-        txtNombres = new javax.swing.JTextField();
-        txtPrimerAP = new javax.swing.JTextField();
-        txtSegundoAP = new javax.swing.JTextField();
+        CBPersonas = new javax.swing.JComboBox<>();
+        txtRol = new javax.swing.JTextField();
+        txtDepartamento = new javax.swing.JTextField();
+        txtEspecialidad = new javax.swing.JTextField();
+        txtSalario = new javax.swing.JFormattedTextField();
 
-        tittleAñadirPersona.setText("Añadir Persona");
+        tittleAñadirPersona.setText("Añadir Personal");
 
-        jLabel2.setText("nombres");
+        jLabel2.setText("nombres y apellidos");
 
-        jLabel3.setText("Primer apellido");
+        jLabel3.setText("Rol");
 
-        jLabel4.setText("Segundo apellido");
+        jLabel4.setText("Departamento");
 
-        jLabel5.setText("Fecha de nacimiento");
+        jLabel5.setText("Especialidad");
 
-        jLabel6.setText("Telefono de contacto");
-
-        txtFechaNaci.setText("YYYY-MM-DD");
-        txtFechaNaci.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtFechaNaciActionPerformed(evt);
-            }
-        });
-
-        txtTelefono.setText("00+ 000 000 0000");
+        jLabel6.setText("Salario");
 
         BAñadirPersona.setText("Añadir persona");
+
+        CBPersonas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -90,17 +82,17 @@ public class PersonaAlta extends javax.swing.JPanel {
                             .addComponent(jLabel4)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtFechaNaci)
-                            .addComponent(txtTelefono, javax.swing.GroupLayout.DEFAULT_SIZE, 256, Short.MAX_VALUE)
-                            .addComponent(txtNombres)
-                            .addComponent(txtPrimerAP)
-                            .addComponent(txtSegundoAP)))
+                            .addComponent(CBPersonas, 0, 214, Short.MAX_VALUE)
+                            .addComponent(txtRol)
+                            .addComponent(txtDepartamento)
+                            .addComponent(txtEspecialidad)
+                            .addComponent(txtSalario)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(334, 334, 334)
                         .addComponent(BAñadirPersona)))
-                .addContainerGap(213, Short.MAX_VALUE))
+                .addContainerGap(268, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,55 +102,50 @@ public class PersonaAlta extends javax.swing.JPanel {
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(CBPersonas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(txtPrimerAP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtRol, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(txtSegundoAP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(txtFechaNaci, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtEspecialidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                    .addComponent(txtSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addComponent(BAñadirPersona)
-                .addContainerGap(158, Short.MAX_VALUE))
+                .addContainerGap(153, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     public void setVaciarComponentes(){
-        txtNombres.setText("");
-        txtPrimerAP.setText("");
-        txtSegundoAP.setText("");
-        txtFechaNaci.setText("YYYY-MM-DD");
-        txtTelefono.setText("00+ 000 000 0000");
+        txtDepartamento.setText("");
+        txtEspecialidad.setText("");
+        txtRol.setText("");
+        txtSalario.setText("");
     }
     
     
-    private void txtFechaNaciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNaciActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtFechaNaciActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BAñadirPersona;
+    private javax.swing.JComboBox<String> CBPersonas;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel tittleAñadirPersona;
-    private javax.swing.JFormattedTextField txtFechaNaci;
-    private javax.swing.JTextField txtNombres;
-    private javax.swing.JTextField txtPrimerAP;
-    private javax.swing.JTextField txtSegundoAP;
-    private javax.swing.JFormattedTextField txtTelefono;
+    private javax.swing.JTextField txtDepartamento;
+    private javax.swing.JTextField txtEspecialidad;
+    private javax.swing.JTextField txtRol;
+    private javax.swing.JFormattedTextField txtSalario;
     // End of variables declaration//GEN-END:variables
 }

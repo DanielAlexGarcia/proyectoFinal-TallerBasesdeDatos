@@ -145,4 +145,45 @@ public class PersonalDAO extends AbstracDAO{
         BigDecimal salariose =  new BigDecimal(salarioString);
         return salariose;
     }
+    
+    public ResultSet buscarPorDepartamento(String departamento) {
+    // Sintaxis para llamar una función de tabla en SQL Server
+    String sql = "SELECT * FROM fn_PersonalPorDepartamento(?)"; 
+    
+    return ejecutarQueryTemplate(
+        sql, 
+        (stmt) -> { 
+            // Implementación de StatementSetter para establecer el parámetro
+            stmt.setString(1, departamento);
+        }, 
+        "consultar personal por departamento"
+    );
+}
+
+public ResultSet buscarPorRol(String rol) {
+    String sql = "SELECT * FROM fn_PersonalPorRol(?)"; 
+    
+    return ejecutarQueryTemplate(
+        sql, 
+        (stmt) -> { 
+            // Implementación de StatementSetter para establecer el parámetro
+            stmt.setString(1, rol);
+        }, 
+        "consultar personal por rol"
+    );
+}
+
+public ResultSet buscarPorEspecialidad(String especialidad){
+    String sql = "SELECT * FROM fn_PersonalPorEspecialidad(?)"; 
+    
+    return ejecutarQueryTemplate(
+        sql, 
+        (stmt) -> { 
+            // Implementación de StatementSetter para establecer el parámetro
+            stmt.setString(1, especialidad);
+        }, 
+        "consultar personal por especialidad"
+    );
+}
+
 }

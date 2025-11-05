@@ -31,13 +31,13 @@
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <Component id="jLabel6" alignment="1" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtFechaNaci" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtTelefono" alignment="0" pref="256" max="32767" attributes="0"/>
-                          <Component id="txtNombres" max="32767" attributes="0"/>
-                          <Component id="txtPrimerAP" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtSegundoAP" alignment="0" max="32767" attributes="0"/>
+                          <Component id="CBPersonas" pref="214" max="32767" attributes="0"/>
+                          <Component id="txtRol" max="32767" attributes="0"/>
+                          <Component id="txtDepartamento" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtEspecialidad" alignment="0" max="32767" attributes="0"/>
+                          <Component id="txtSalario" alignment="0" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -45,7 +45,7 @@
                       <Component id="BAñadirPersona" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="213" max="32767" attributes="0"/>
+              <EmptySpace pref="268" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -57,31 +57,31 @@
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel2" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtNombres" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="CBPersonas" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel3" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtPrimerAP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtRol" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtSegundoAP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDepartamento" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtFechaNaci" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtEspecialidad" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
-                  <Component id="txtTelefono" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabel6" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSalario" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
               <Component id="BAñadirPersona" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="158" max="32767" attributes="0"/>
+              <EmptySpace pref="153" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -89,45 +89,32 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="tittleA&#xf1;adirPersona">
       <Properties>
-        <Property name="text" type="java.lang.String" value="A&#xf1;adir Persona"/>
+        <Property name="text" type="java.lang.String" value="A&#xf1;adir Personal"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
-        <Property name="text" type="java.lang.String" value="nombres"/>
+        <Property name="text" type="java.lang.String" value="nombres y apellidos"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Primer apellido"/>
+        <Property name="text" type="java.lang.String" value="Rol"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Segundo apellido"/>
+        <Property name="text" type="java.lang.String" value="Departamento"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
+        <Property name="text" type="java.lang.String" value="Especialidad"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
-        <Property name="text" type="java.lang.String" value="Telefono de contacto"/>
-      </Properties>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="txtFechaNaci">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="YYYY-MM-DD"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtFechaNaciActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JFormattedTextField" name="txtTelefono">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="00+ 000 000 0000"/>
+        <Property name="text" type="java.lang.String" value="Salario"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="BA&#xf1;adirPersona">
@@ -135,11 +122,28 @@
         <Property name="text" type="java.lang.String" value="A&#xf1;adir persona"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtNombres">
+    <Component class="javax.swing.JComboBox" name="CBPersonas">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
+      </AuxValues>
     </Component>
-    <Component class="javax.swing.JTextField" name="txtPrimerAP">
+    <Component class="javax.swing.JTextField" name="txtRol">
     </Component>
-    <Component class="javax.swing.JTextField" name="txtSegundoAP">
+    <Component class="javax.swing.JTextField" name="txtDepartamento">
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtEspecialidad">
+    </Component>
+    <Component class="javax.swing.JFormattedTextField" name="txtSalario">
     </Component>
   </SubComponents>
 </Form>

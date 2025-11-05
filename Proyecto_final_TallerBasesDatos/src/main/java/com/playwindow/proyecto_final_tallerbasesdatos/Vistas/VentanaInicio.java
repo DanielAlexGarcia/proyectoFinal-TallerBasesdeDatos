@@ -150,7 +150,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         MenuPersonal = new javax.swing.JMenu();
         PersonalAlta = new javax.swing.JMenuItem();
         PersonalBaja = new javax.swing.JMenuItem();
-        PersonalConsulta = new javax.swing.JMenuItem();
+        PersonaEdit = new javax.swing.JMenuItem();
         MenuCita = new javax.swing.JMenu();
         CitaAgendar = new javax.swing.JMenuItem();
         CitaConsulta = new javax.swing.JMenuItem();
@@ -284,8 +284,13 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         MenuPersonal.add(PersonalBaja);
 
-        PersonalConsulta.setText("Consultar");
-        MenuPersonal.add(PersonalConsulta);
+        PersonaEdit.setText("Editar");
+        PersonaEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PersonaEditActionPerformed(evt);
+            }
+        });
+        MenuPersonal.add(PersonaEdit);
 
         MenuBarOP.add(MenuPersonal);
 
@@ -336,10 +341,12 @@ public class VentanaInicio extends javax.swing.JFrame {
 
     private void PersonalAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalAltaActionPerformed
         perEdit.setVisible(true);
+        perEdit.setWindowShow(1);
     }//GEN-LAST:event_PersonalAltaActionPerformed
 
     private void PersonalBajaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalBajaActionPerformed
-        // TODO add your handling code here:
+        perEdit.setVisible(true);
+        perEdit.setWindowShow(2);
     }//GEN-LAST:event_PersonalBajaActionPerformed
 
     private void CitaAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitaAgendarActionPerformed
@@ -395,6 +402,11 @@ public class VentanaInicio extends javax.swing.JFrame {
 			}
     }//GEN-LAST:event_BEntrarActionPerformed
 
+    private void PersonaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonaEditActionPerformed
+        perEdit.setVisible(true);
+        perEdit.setWindowShow(3);
+    }//GEN-LAST:event_PersonaEditActionPerformed
+
     
     private void añadirOpciones(boolean accion){
         MenuBarOP.setVisible(accion);
@@ -428,9 +440,9 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenuBar MenuBarOP;
     private javax.swing.JMenu MenuCita;
     private javax.swing.JMenu MenuPersonal;
+    private javax.swing.JMenuItem PersonaEdit;
     private javax.swing.JMenuItem PersonalAlta;
     private javax.swing.JMenuItem PersonalBaja;
-    private javax.swing.JMenuItem PersonalConsulta;
     private javax.swing.JMenu Reporte;
     private javax.swing.JTextArea Usuario;
     private javax.swing.JDialog cargando;

@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.3" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Container class="javax.swing.JScrollPane" name="jScrollPane1">
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jTable1">
+          <Properties>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="4" rowCount="4">
+                <Column editable="true" title="Title 1" type="java.lang.Object"/>
+                <Column editable="true" title="Title 2" type="java.lang.Object"/>
+                <Column editable="true" title="Title 3" type="java.lang.Object"/>
+                <Column editable="true" title="Title 4" type="java.lang.Object"/>
+              </Table>
+            </Property>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.ButtonGroup" name="groupBuscar">
+    </Component>
+  </NonVisualComponents>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -16,6 +41,37 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace min="34" pref="34" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="jLabel4" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="BBuscar" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
+                      <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="txtDNI" min="-2" pref="92" max="-2" attributes="0"/>
+                  </Group>
+              </Group>
+              <EmptySpace pref="34" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="RBPrimerAP" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBSegundoAP" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBFechaNaci" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBNombres" alignment="0" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtNombres" max="32767" attributes="0"/>
+                  <Component id="txtPrimerAP" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtSegundoAP" max="32767" attributes="0"/>
+                  <Component id="txtTelefono" max="32767" attributes="0"/>
+                  <Component id="txtFechaNaci" alignment="0" min="-2" pref="131" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="BActualizar" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="40" max="-2" attributes="0"/>
+          </Group>
           <Group type="102" attributes="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
@@ -23,25 +79,11 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="146" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="RBNombres" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBPrimerAP" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBSegundoAP" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBFechaNaci" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBTelefono" alignment="0" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtTelefono" alignment="0" pref="131" max="32767" attributes="0"/>
-                          <Component id="txtFechaNaci" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtSegundoAP" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtPrimerAP" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtNombres" alignment="0" max="32767" attributes="0"/>
-                      </Group>
+                      <EmptySpace min="-2" pref="255" max="-2" attributes="0"/>
+                      <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="178" max="32767" attributes="0"/>
+              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -50,32 +92,39 @@
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
               <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="2" attributes="0">
-                  <Group type="102" alignment="2" attributes="0">
-                      <Component id="txtNombres" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="6" attributes="0"/>
-                      <Component id="txtPrimerAP" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="6" attributes="0"/>
-                      <Component id="txtSegundoAP" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="6" attributes="0"/>
-                      <Component id="txtFechaNaci" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="6" pref="6" max="6" attributes="0"/>
-                      <Component id="txtTelefono" min="-2" max="-2" attributes="0"/>
-                  </Group>
-                  <Group type="102" alignment="2" attributes="0">
-                      <Component id="RBNombres" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="11" pref="11" max="11" attributes="0"/>
-                      <Component id="RBPrimerAP" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="11" pref="11" max="11" attributes="0"/>
-                      <Component id="RBSegundoAP" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="11" pref="11" max="11" attributes="0"/>
-                      <Component id="RBFechaNaci" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="11" pref="11" max="11" attributes="0"/>
-                      <Component id="RBTelefono" min="-2" max="-2" attributes="0"/>
-                  </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RBNombres" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtNombres" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel4" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="150" max="-2" attributes="0"/>
+              <EmptySpace min="6" pref="6" max="6" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RBPrimerAP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtPrimerAP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtDNI" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="6" pref="6" max="6" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RBSegundoAP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtSegundoAP" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BActualizar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="5" pref="5" max="5" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RBFechaNaci" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtFechaNaci" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="5" pref="5" max="5" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="RBTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="txtTelefono" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="246" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -100,25 +149,70 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombres"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBNombresActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBPrimerAP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Primer apellido"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBPrimerAPActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBSegundoAP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Segundo apellido"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBSegundoAPActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBFechaNaci">
       <Properties>
         <Property name="text" type="java.lang.String" value="Fecha de nacimiento"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBFechaNaciActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBTelefono">
       <Properties>
         <Property name="text" type="java.lang.String" value="Telefono de contacto"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBTelefonoActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="BBuscar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Buscar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BBuscarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel2">
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel4">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Primero has la busqueda"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="txtDNI">
+    </Component>
+    <Component class="javax.swing.JButton" name="BActualizar">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Actualizar"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="BActualizarActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabel5">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="DNI"/>
       </Properties>
     </Component>
   </SubComponents>
