@@ -47,7 +47,7 @@ public class PersonaBaja extends javax.swing.JPanel {
     }
     
     private void cleantxtdisable(){
-        txtDepartamento.setEditable(true);
+        txtDepartamento.setEditable(false);
         txtEspecialidad.setEditable(false);
         txtRol.setEditable(false);
     }
