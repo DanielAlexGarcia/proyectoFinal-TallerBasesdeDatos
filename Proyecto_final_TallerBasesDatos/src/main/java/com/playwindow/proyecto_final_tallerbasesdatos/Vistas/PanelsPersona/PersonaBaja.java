@@ -5,6 +5,10 @@
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsPersona;
 
 import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.formatosTextArea;
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
 import javax.swing.JRadioButton;
 
 /**
@@ -42,16 +46,54 @@ public class PersonaBaja extends javax.swing.JPanel {
         setEnableRB(RBRol);
     }
     
+    private void cleantxtdisable(){
+        txtDepartamento.setEditable(true);
+        txtEspecialidad.setEditable(false);
+        txtRol.setEditable(false);
+    }
+    
     private void setEnableRB(JRadioButton select){
         boolean enabled = select.isSelected();
-        if (select.equals(RBDEpartamento)){
+        if (select == (RBDEpartamento)){
             txtDepartamento.setEditable(enabled);
-        }else if (select.equals(RBEspecialidad)){
+        }else if (select == (RBEspecialidad)){
             txtEspecialidad.setEditable(enabled);
-        }else if (select.equals(RBRol)){
+        }else if (select == (RBRol)){
             txtRol.setEditable(enabled);
         }
     }
+    
+    public void setEnableRBFromGroup(ButtonGroup grupo) {                           // Metodo para abilitar/desbilitar campos de texto en base a RB dentro de un buttonGroup
+    // 1. Obtener el ButtonModel seleccionado
+    ButtonModel modeloSeleccionado = grupo.getSelection();
+
+    if (modeloSeleccionado != null) {
+        // 2. Iterar sobre los botones del grupo para encontrar el JRadioButton
+        Enumeration<AbstractButton> botones = grupo.getElements();
+        while (botones.hasMoreElements()) {
+            AbstractButton boton = botones.nextElement();
+            if (boton.getModel() == modeloSeleccionado) {
+                // Se encontró el JRadioButton seleccionado
+                if (boton instanceof JRadioButton) {
+                    JRadioButton rbSeleccionado = (JRadioButton) boton;
+                    
+                    // Asegúrate de limpiar y deshabilitar los otros campos primero 
+                    // para emular el comportamiento de un grupo de radio buttons
+                    cleantxtdisable(); 
+                    
+                    // 3. Llamar a tu método existente
+                    setEnableRB(rbSeleccionado);
+                    
+                    // Opcional: enfocar el campo de texto si está habilitado
+                    // if (rbSeleccionado == RBNombres) txtNombres.requestFocusInWindow();
+                    // ... y así sucesivamente para los demás RBs ...
+
+                    break; // Salir del bucle una vez encontrado
+                }
+            }
+        }
+    }
+}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,8 +157,18 @@ public class PersonaBaja extends javax.swing.JPanel {
         });
 
         RBEspecialidad.setText("Especialidad");
+        RBEspecialidad.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBEspecialidadActionPerformed(evt);
+            }
+        });
 
         RBDEpartamento.setText("Departamento");
+        RBDEpartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBDEpartamentoActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -190,8 +242,16 @@ public class PersonaBaja extends javax.swing.JPanel {
     }//GEN-LAST:event_BDeleteActionPerformed
 
     private void RBRolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBRolActionPerformed
-        // TODO add your handling code here:
+        setEnableRBFromGroup(grupoOpcion);
     }//GEN-LAST:event_RBRolActionPerformed
+
+    private void RBEspecialidadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBEspecialidadActionPerformed
+        setEnableRBFromGroup(grupoOpcion);
+    }//GEN-LAST:event_RBEspecialidadActionPerformed
+
+    private void RBDEpartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBDEpartamentoActionPerformed
+        setEnableRBFromGroup(grupoOpcion);
+    }//GEN-LAST:event_RBDEpartamentoActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

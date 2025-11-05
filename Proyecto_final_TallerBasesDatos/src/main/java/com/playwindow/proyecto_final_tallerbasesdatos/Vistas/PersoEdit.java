@@ -22,11 +22,10 @@ public class PersoEdit extends javax.swing.JInternalFrame {
     public final String PanelAlta = "PanelAltaPersona";
     public final String PanelBaja = "PanelBajaPersona";
     public final String PanelEdit = "PanelEditPersona";
-    public final String PanelConsult = "PanelConsultPersona";
     
     private PersonaAlta perAlta = new PersonaAlta();
     private PersonaBaja perBaja = new PersonaBaja();
-    private PersonaEdit perEdit = new PersonaEdit();
+    private PersonalEdit perEdit = new PersonalEdit();
     
     /**
      * Creates new form PersoEdit
@@ -44,7 +43,8 @@ public class PersoEdit extends javax.swing.JInternalFrame {
 
         panelDeContenido.add(perAlta, PanelAlta);
         panelDeContenido.add(perBaja, PanelBaja);
-        panelDeContenido.add (perEdit, PanelEdit);
+        panelDeContenido.add(perEdit, PanelEdit);
+        
 
         getContentPane().removeAll(); // quitamos el layout vacío generado por NetBeans
         getContentPane().setLayout(new BorderLayout());
@@ -91,7 +91,7 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         jToolBar1 = new javax.swing.JToolBar();
         BAñadir = new javax.swing.JButton();
         Beliminar = new javax.swing.JButton();
-        BEdit = new javax.swing.JButton();
+        BModificar = new javax.swing.JButton();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -121,16 +121,16 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         });
         jToolBar1.add(Beliminar);
 
-        BEdit.setText("Editar");
-        BEdit.setFocusable(false);
-        BEdit.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        BEdit.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        BEdit.addActionListener(new java.awt.event.ActionListener() {
+        BModificar.setText("Modificar");
+        BModificar.setFocusable(false);
+        BModificar.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        BModificar.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BModificar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BEditActionPerformed(evt);
+                BModificarActionPerformed(evt);
             }
         });
-        jToolBar1.add(BEdit);
+        jToolBar1.add(BModificar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -156,14 +156,14 @@ public class PersoEdit extends javax.swing.JInternalFrame {
         setCardLayaout(PanelAlta);
     }//GEN-LAST:event_BAñadirActionPerformed
 
-    private void BEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEditActionPerformed
+    private void BModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BModificarActionPerformed
         setCardLayaout(PanelEdit);
-    }//GEN-LAST:event_BEditActionPerformed
+    }//GEN-LAST:event_BModificarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BAñadir;
-    private javax.swing.JButton BEdit;
+    private javax.swing.JButton BModificar;
     private javax.swing.JButton Beliminar;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JToolBar jToolBar1;

@@ -1,9 +1,10 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
 
+import java.text.DecimalFormat;
 import java.text.ParseException;
 import javax.swing.text.*;
 import java.util.regex.Pattern;
@@ -102,6 +103,39 @@ public class formatosTextArea {
             System.err.println("Error al crear la máscara de fecha: " + e.getMessage());
         }
     }
+    public static void FormatoSalario(JFormattedTextField textField) {
+    try {
+        // 1. Definir el patrón decimal (5 enteros, 2 decimales)
+        // # se usa para dígitos opcionales; 0 para dígitos obligatorios.
+        // #####.00 asegura que siempre haya 2 decimales, y un máximo de 5 enteros.
+        DecimalFormat formatoDecimal = new DecimalFormat("#####.00");
+        formatoDecimal.setParseIntegerOnly(false); // Permitir decimales
+
+        // 2. Crear el NumberFormatter con el patrón
+        NumberFormatter formatter = new NumberFormatter(formatoDecimal);
+        
+        // 3. Establecer límites (opcional pero bueno para forzar el tipo de datos)
+        // Aunque el DecimalFormat define el patrón, el setMaximum establece el valor máximo parseable.
+        // Un valor máximo de 99999.99 asegura que se respeta el límite de 5 enteros.
+        formatter.setMaximum(99999.99); 
+        formatter.setMinimum(0.00); 
+        
+        // 4. Aplicar el FormatterFactory
+        textField.setFormatterFactory(new JFormattedTextField.AbstractFormatterFactory() {
+            @Override
+            public JFormattedTextField.AbstractFormatter getFormatter(JFormattedTextField tf) {
+                return formatter;
+            }
+        });
+        
+        // Opcional: Establecer un valor inicial y alineación
+        textField.setHorizontalAlignment(JFormattedTextField.RIGHT);
+        textField.setValue(0.00); 
+
+    } catch (Exception e) {
+        System.err.println("Error al crear el formato de salario: " + e.getMessage());
+    }
+}
     
     public static void FormatoHora(JFormattedTextField textField) {
         try {

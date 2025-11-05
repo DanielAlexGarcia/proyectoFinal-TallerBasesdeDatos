@@ -150,7 +150,10 @@ public class VentanaInicio extends javax.swing.JFrame {
         MenuPersonal = new javax.swing.JMenu();
         PersonalAlta = new javax.swing.JMenuItem();
         PersonalBaja = new javax.swing.JMenuItem();
-        PersonaEdit = new javax.swing.JMenuItem();
+        PersonalEdit = new javax.swing.JMenuItem();
+        MenuPaciente = new javax.swing.JMenu();
+        PacienteAlta = new javax.swing.JMenuItem();
+        PacienteEliminar = new javax.swing.JMenuItem();
         MenuCita = new javax.swing.JMenu();
         CitaAgendar = new javax.swing.JMenuItem();
         CitaConsulta = new javax.swing.JMenuItem();
@@ -284,15 +287,20 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         MenuPersonal.add(PersonalBaja);
 
-        PersonaEdit.setText("Editar");
-        PersonaEdit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                PersonaEditActionPerformed(evt);
-            }
-        });
-        MenuPersonal.add(PersonaEdit);
+        PersonalEdit.setText("PersonalEdit");
+        MenuPersonal.add(PersonalEdit);
 
         MenuBarOP.add(MenuPersonal);
+
+        MenuPaciente.setText("Paciente");
+
+        PacienteAlta.setText("Nuevo");
+        MenuPaciente.add(PacienteAlta);
+
+        PacienteEliminar.setText("Eliminar");
+        MenuPaciente.add(PacienteEliminar);
+
+        MenuBarOP.add(MenuPaciente);
 
         MenuCita.setText("Cita");
 
@@ -402,11 +410,6 @@ public class VentanaInicio extends javax.swing.JFrame {
 			}
     }//GEN-LAST:event_BEntrarActionPerformed
 
-    private void PersonaEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonaEditActionPerformed
-        perEdit.setVisible(true);
-        perEdit.setWindowShow(3);
-    }//GEN-LAST:event_PersonaEditActionPerformed
-
     
     private void añadirOpciones(boolean accion){
         MenuBarOP.setVisible(accion);
@@ -439,10 +442,13 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JInternalFrame InicioSecion;
     private javax.swing.JMenuBar MenuBarOP;
     private javax.swing.JMenu MenuCita;
+    private javax.swing.JMenu MenuPaciente;
     private javax.swing.JMenu MenuPersonal;
-    private javax.swing.JMenuItem PersonaEdit;
+    private javax.swing.JMenuItem PacienteAlta;
+    private javax.swing.JMenuItem PacienteEliminar;
     private javax.swing.JMenuItem PersonalAlta;
     private javax.swing.JMenuItem PersonalBaja;
+    private javax.swing.JMenuItem PersonalEdit;
     private javax.swing.JMenu Reporte;
     private javax.swing.JTextArea Usuario;
     private javax.swing.JDialog cargando;
