@@ -55,6 +55,12 @@ public class formatosTextArea {
         // Asume que MaxCharDocumentFilter ya ha sido definido.
         applyDocumentFilter(textComponent, new MaxCharDocumentFilter(maxChars, "[a-zA-Z\\s]*"));
     }
+    
+    public static void FormatoGrupoSanguineo(JTextComponent textComponent) {
+        // El regex permite A, B, O, a, b, o, + y -
+        // El límite de caracteres se establece en 3 (máximo "AB-")
+        applyDocumentFilter(textComponent, new MaxCharDocumentFilter(3, "[aAbBoO+-]*"));
+    }
 
     /**
      * Limita el JTextComponent (JTextArea/JTextField) a un número máximo de caracteres, permitiendo cualquier tipo.
@@ -103,6 +109,17 @@ public class formatosTextArea {
             System.err.println("Error al crear la máscara de fecha: " + e.getMessage());
         }
     }
+    
+    public static void setSoloNumeros(JTextComponent textComponent, int maxChars) {
+        // [0-9]* permite solo dígitos numéricos.
+        applyDocumentFilter(textComponent, new MaxCharDocumentFilter(maxChars, "[0-9]*"));
+    }
+    
+    public static void setSoloAlfanumericos(JTextComponent textComponent, int maxChars) {
+        // [a-zA-Z0-9]* permite solo letras mayúsculas, minúsculas y números.
+        applyDocumentFilter(textComponent, new MaxCharDocumentFilter(maxChars, "[a-zA-Z0-9]*"));
+    }
+    
     public static void FormatoSalario(JFormattedTextField textField) {
     try {
         // 1. Definir el patrón decimal (5 enteros, 2 decimales)

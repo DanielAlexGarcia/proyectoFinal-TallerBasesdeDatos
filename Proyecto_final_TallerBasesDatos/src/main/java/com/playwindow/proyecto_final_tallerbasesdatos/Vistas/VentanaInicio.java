@@ -20,6 +20,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaInicio.class.getName());
     PersoEdit perEdit = new PersoEdit();
+    PacEdit pacdit = new PacEdit();
     
     private void coneccionDB(){
         System.out.println("--- Iniciando prueba de conexión ---");
@@ -90,6 +91,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         contraseña.setText("");
         añadirOpciones(false);
         destopPanel.add(perEdit);
+        destopPanel.add(pacdit);
        provar();
     }
     public void showMessageDialog(JFrame fame, String n, boolean activar) {
@@ -153,7 +155,7 @@ public class VentanaInicio extends javax.swing.JFrame {
         PersonalEdit = new javax.swing.JMenuItem();
         MenuPaciente = new javax.swing.JMenu();
         PacienteAlta = new javax.swing.JMenuItem();
-        PacienteEliminar = new javax.swing.JMenuItem();
+        PacienteModificar = new javax.swing.JMenuItem();
         MenuCita = new javax.swing.JMenu();
         CitaAgendar = new javax.swing.JMenuItem();
         CitaConsulta = new javax.swing.JMenuItem();
@@ -288,6 +290,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         MenuPersonal.add(PersonalBaja);
 
         PersonalEdit.setText("PersonalEdit");
+        PersonalEdit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PersonalEditActionPerformed(evt);
+            }
+        });
         MenuPersonal.add(PersonalEdit);
 
         MenuBarOP.add(MenuPersonal);
@@ -295,10 +302,20 @@ public class VentanaInicio extends javax.swing.JFrame {
         MenuPaciente.setText("Paciente");
 
         PacienteAlta.setText("Nuevo");
+        PacienteAlta.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PacienteAltaActionPerformed(evt);
+            }
+        });
         MenuPaciente.add(PacienteAlta);
 
-        PacienteEliminar.setText("Eliminar");
-        MenuPaciente.add(PacienteEliminar);
+        PacienteModificar.setText("Modificar");
+        PacienteModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                PacienteModificarActionPerformed(evt);
+            }
+        });
+        MenuPaciente.add(PacienteModificar);
 
         MenuBarOP.add(MenuPaciente);
 
@@ -410,6 +427,21 @@ public class VentanaInicio extends javax.swing.JFrame {
 			}
     }//GEN-LAST:event_BEntrarActionPerformed
 
+    private void PersonalEditActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PersonalEditActionPerformed
+        perEdit.setVisible(true);
+        perEdit.setWindowShow(3);
+    }//GEN-LAST:event_PersonalEditActionPerformed
+
+    private void PacienteAltaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PacienteAltaActionPerformed
+        pacdit.setVisible(true);
+        pacdit.setWindowShow(1);
+    }//GEN-LAST:event_PacienteAltaActionPerformed
+
+    private void PacienteModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_PacienteModificarActionPerformed
+        pacdit.setVisible(true);
+        pacdit.setWindowShow(2);
+    }//GEN-LAST:event_PacienteModificarActionPerformed
+
     
     private void añadirOpciones(boolean accion){
         MenuBarOP.setVisible(accion);
@@ -445,7 +477,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private javax.swing.JMenu MenuPaciente;
     private javax.swing.JMenu MenuPersonal;
     private javax.swing.JMenuItem PacienteAlta;
-    private javax.swing.JMenuItem PacienteEliminar;
+    private javax.swing.JMenuItem PacienteModificar;
     private javax.swing.JMenuItem PersonalAlta;
     private javax.swing.JMenuItem PersonalBaja;
     private javax.swing.JMenuItem PersonalEdit;

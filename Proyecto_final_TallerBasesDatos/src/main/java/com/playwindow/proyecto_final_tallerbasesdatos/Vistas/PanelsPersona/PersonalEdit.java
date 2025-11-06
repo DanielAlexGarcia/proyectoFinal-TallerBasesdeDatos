@@ -32,6 +32,7 @@ public class PersonalEdit extends javax.swing.JPanel {
         formatosTextArea.setSoloLetras(txtEspecialidad, 70);
         formatosTextArea.setSoloLetras(txtRol, 70);
         formatosTextArea.FormatoSalario(txtSalario);
+        formatosTextArea.setSoloNumeros(txtID, 10);
         setVaciarComponentes();
     }
 

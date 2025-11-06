@@ -28,8 +28,8 @@ public class PersonaBaja extends javax.swing.JPanel {
         
         formatosTextArea.setSoloLetras(txtDepartamento, 70);
         formatosTextArea.setSoloLetras(txtEspecialidad, 45);
+        formatosTextArea.setSoloNumeros(txtFieldID, 10);
         formatosTextArea.setSoloLetras(txtRol, 70);
-        formatosTextArea.setMaxCaracteres(txtFieldID, 10);
         
         
     }
@@ -201,8 +201,8 @@ public class PersonaBaja extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(txtFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 166, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(29, 29, 29)
+                .addComponent(txtFieldID, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(BDelete)
                 .addGap(145, 145, 145))
         );
