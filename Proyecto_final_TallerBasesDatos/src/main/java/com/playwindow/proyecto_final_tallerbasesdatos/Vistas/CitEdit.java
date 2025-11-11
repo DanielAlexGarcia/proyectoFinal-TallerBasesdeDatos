@@ -4,17 +4,68 @@
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
 
+import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsCitas.*;
+
+import java.awt.BorderLayout;
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author daniel
  */
 public class CitEdit extends javax.swing.JInternalFrame {
 
+    private String PanelAñadir = "CitaAñadir";
+    private String PanelConsultar = "CitaConsultar";
+    private String PanelModificar = "CitaModificar";
+    private String PanelMidifiEstado = "CitaModificarEstado";
+    private JPanel panelDeContenido;
+    private CardLayout cardLayout;
+    private CitaAñadir citAñadir = new CitaAñadir();
+    private CitaModificar citModif = new CitaModificar();
     /**
      * Creates new form CitEdit
      */
     public CitEdit() {
         initComponents();
+        iniciarCardLayaout();
+        setWindowShow(1);
+    }
+    
+    private void iniciarCardLayaout(){
+        cardLayout = new CardLayout();
+        panelDeContenido = new JPanel(cardLayout);
+        
+        panelDeContenido.add(citAñadir, PanelAñadir);
+        panelDeContenido.add(citModif, PanelModificar);
+        
+        getContentPane().removeAll(); // quitamos el layout vacío generado por NetBeans
+        getContentPane().setLayout(new BorderLayout());
+        getContentPane().add(jToolBar1, BorderLayout.NORTH);
+        getContentPane().add(panelDeContenido, BorderLayout.CENTER);
+        
+        revalidate();
+        repaint();
+    }
+    
+    private void showCardLayaout(String namePanel){
+        cardLayout.show(panelDeContenido, namePanel);
+        if(namePanel.equals(PanelAñadir)){
+            citAñadir.setVaciarComponentes();
+        }else if (namePanel.equals(PanelModificar)){
+            citModif.setVaciarComponentes();
+        }
+    }
+    
+    public void setWindowShow(int numWindow){
+        if (numWindow == 1){
+            showCardLayaout(PanelAñadir);
+            citAñadir.setVaciarComponentes();
+        }else if (numWindow == 2){
+            showCardLayaout(PanelModificar);
+            citModif.setVaciarComponentes();
+        }
     }
 
     /**
@@ -38,6 +89,11 @@ public class CitEdit extends javax.swing.JInternalFrame {
         BNewCita.setFocusable(false);
         BNewCita.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BNewCita.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BNewCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BNewCitaActionPerformed(evt);
+            }
+        });
         jToolBar1.add(BNewCita);
 
         BModifiCita.setText("Modificar");
@@ -62,17 +118,22 @@ public class CitEdit extends javax.swing.JInternalFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 583, Short.MAX_VALUE)
+            .addComponent(jToolBar1, javax.swing.GroupLayout.DEFAULT_SIZE, 679, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jToolBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 376, Short.MAX_VALUE))
+                .addGap(0, 451, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BNewCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BNewCitaActionPerformed
+        setWindowShow(1);
+        citAñadir.setVaciarComponentes();
+    }//GEN-LAST:event_BNewCitaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

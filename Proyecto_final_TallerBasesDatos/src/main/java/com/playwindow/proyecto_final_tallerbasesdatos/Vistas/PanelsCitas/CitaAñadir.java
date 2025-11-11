@@ -22,6 +22,17 @@ public class CitaAñadir extends javax.swing.JPanel {
         formatosTextArea.setSoloLetras(txtMotivo, 70);
         formatosTextArea.setSoloAlfanumericos(txtNumSeguro, 10);
     }
+    
+    public void setVaciarComponentes(){
+        txtFecha.setText("");
+        txtHora.setText("");
+        txtMotivo.setText("");
+        txtNumSeguro.setText("");
+        CBNameDoctor.setSelectedIndex(0);
+        CBNamePaciente.setSelectedIndex(0);
+    }
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -69,6 +80,11 @@ public class CitaAñadir extends javax.swing.JPanel {
         BGuardar.setText("Guardar");
 
         BBorrar.setText("Borrar");
+        BBorrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BBorrarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -151,6 +167,10 @@ public class CitaAñadir extends javax.swing.JPanel {
                 .addGap(54, 54, 54))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BBorrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BBorrarActionPerformed
+        setVaciarComponentes();
+    }//GEN-LAST:event_BBorrarActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

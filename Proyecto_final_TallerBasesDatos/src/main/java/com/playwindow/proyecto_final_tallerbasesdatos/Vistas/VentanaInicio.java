@@ -21,6 +21,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaInicio.class.getName());
     PersoEdit perEdit = new PersoEdit();
     PacEdit pacdit = new PacEdit();
+    CitEdit citdit = new CitEdit();
     
     private void coneccionDB(){
         System.out.println("--- Iniciando prueba de conexión ---");
@@ -92,7 +93,8 @@ public class VentanaInicio extends javax.swing.JFrame {
         añadirOpciones(false);
         destopPanel.add(perEdit);
         destopPanel.add(pacdit);
-       provar();
+        destopPanel.add(citdit);
+       //provar();
     }
     public void showMessageDialog(JFrame fame, String n, boolean activar) {
 		  // ventana = JFrame padre
@@ -375,7 +377,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_PersonalBajaActionPerformed
 
     private void CitaAgendarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitaAgendarActionPerformed
-        // TODO add your handling code here:
+        citdit.setVisible(true);
+        citdit.setWindowShow(1);
     }//GEN-LAST:event_CitaAgendarActionPerformed
 
     private void CitaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitaEditarActionPerformed
