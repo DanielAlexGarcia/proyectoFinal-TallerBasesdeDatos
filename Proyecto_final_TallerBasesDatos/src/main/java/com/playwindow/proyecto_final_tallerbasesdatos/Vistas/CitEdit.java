@@ -19,11 +19,12 @@ public class CitEdit extends javax.swing.JInternalFrame {
     private String PanelAñadir = "CitaAñadir";
     private String PanelConsultar = "CitaConsultar";
     private String PanelModificar = "CitaModificar";
-    private String PanelMidifiEstado = "CitaModificarEstado";
+    private String PanelDeletCita = "CitaEliminar";
     private JPanel panelDeContenido;
     private CardLayout cardLayout;
     private CitaAñadir citAñadir = new CitaAñadir();
     private CitaModificar citModif = new CitaModificar();
+    private CitaEliminar citDelet = new CitaEliminar();
     /**
      * Creates new form CitEdit
      */
@@ -39,6 +40,7 @@ public class CitEdit extends javax.swing.JInternalFrame {
         
         panelDeContenido.add(citAñadir, PanelAñadir);
         panelDeContenido.add(citModif, PanelModificar);
+        panelDeContenido.add(citDelet, PanelDeletCita );
         
         getContentPane().removeAll(); // quitamos el layout vacío generado por NetBeans
         getContentPane().setLayout(new BorderLayout());
@@ -55,6 +57,8 @@ public class CitEdit extends javax.swing.JInternalFrame {
             citAñadir.setVaciarComponentes();
         }else if (namePanel.equals(PanelModificar)){
             citModif.setVaciarComponentes();
+        }else if (namePanel.equals(PanelDeletCita)){
+            citDelet.setVaciarcomponentes();
         }
     }
     
@@ -65,6 +69,9 @@ public class CitEdit extends javax.swing.JInternalFrame {
         }else if (numWindow == 2){
             showCardLayaout(PanelModificar);
             citModif.setVaciarComponentes();
+        }else if (numWindow == 3){
+            showCardLayaout(PanelDeletCita);
+            citDelet.setVaciarcomponentes();
         }
     }
 
@@ -100,12 +107,22 @@ public class CitEdit extends javax.swing.JInternalFrame {
         BModifiCita.setFocusable(false);
         BModifiCita.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BModifiCita.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BModifiCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BModifiCitaActionPerformed(evt);
+            }
+        });
         jToolBar1.add(BModifiCita);
 
         BEliminiCita.setText("Eliminar");
         BEliminiCita.setFocusable(false);
         BEliminiCita.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BEliminiCita.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        BEliminiCita.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BEliminiCitaActionPerformed(evt);
+            }
+        });
         jToolBar1.add(BEliminiCita);
 
         BModifiEstate.setText("Modificar estado");
@@ -134,6 +151,16 @@ public class CitEdit extends javax.swing.JInternalFrame {
         setWindowShow(1);
         citAñadir.setVaciarComponentes();
     }//GEN-LAST:event_BNewCitaActionPerformed
+
+    private void BModifiCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BModifiCitaActionPerformed
+        setWindowShow(2);
+        citModif.setVaciarComponentes();
+    }//GEN-LAST:event_BModifiCitaActionPerformed
+
+    private void BEliminiCitaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BEliminiCitaActionPerformed
+        setWindowShow(3);
+        citDelet.setVaciarcomponentes();
+    }//GEN-LAST:event_BEliminiCitaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

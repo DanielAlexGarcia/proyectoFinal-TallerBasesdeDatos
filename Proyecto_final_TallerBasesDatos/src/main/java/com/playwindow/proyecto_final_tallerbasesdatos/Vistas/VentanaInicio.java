@@ -160,8 +160,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         PacienteModificar = new javax.swing.JMenuItem();
         MenuCita = new javax.swing.JMenu();
         CitaAgendar = new javax.swing.JMenuItem();
-        CitaConsulta = new javax.swing.JMenuItem();
         CitaEditar = new javax.swing.JMenuItem();
+        CitaElim = new javax.swing.JMenuItem();
+        CitaConsultar = new javax.swing.JMenuItem();
         estadistica = new javax.swing.JMenu();
         Reporte = new javax.swing.JMenu();
 
@@ -226,11 +227,10 @@ public class VentanaInicio extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(problema1)
-                            .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 246, Short.MAX_VALUE)
-                                .addComponent(contraseña))
-                            .addComponent(problema2))))
-                .addContainerGap(32, Short.MAX_VALUE))
+                            .addComponent(contraseña, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(problema2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(17, Short.MAX_VALUE))
         );
         InicioSecionLayout.setVerticalGroup(
             InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -239,8 +239,8 @@ public class VentanaInicio extends javax.swing.JFrame {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(InicioSecionLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(problema1)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -270,7 +270,7 @@ public class VentanaInicio extends javax.swing.JFrame {
             .addGroup(destopPanelLayout.createSequentialGroup()
                 .addGap(139, 139, 139)
                 .addComponent(InicioSecion, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(228, Short.MAX_VALUE))
         );
 
         MenuPersonal.setText("Personal");
@@ -331,9 +331,6 @@ public class VentanaInicio extends javax.swing.JFrame {
         });
         MenuCita.add(CitaAgendar);
 
-        CitaConsulta.setText("Consultar");
-        MenuCita.add(CitaConsulta);
-
         CitaEditar.setText("Editar");
         CitaEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -341,6 +338,17 @@ public class VentanaInicio extends javax.swing.JFrame {
             }
         });
         MenuCita.add(CitaEditar);
+
+        CitaElim.setText("Eliminar");
+        CitaElim.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CitaElimActionPerformed(evt);
+            }
+        });
+        MenuCita.add(CitaElim);
+
+        CitaConsultar.setText("Consultar");
+        MenuCita.add(CitaConsultar);
 
         MenuBarOP.add(MenuCita);
 
@@ -382,7 +390,8 @@ public class VentanaInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_CitaAgendarActionPerformed
 
     private void CitaEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitaEditarActionPerformed
-        // TODO add your handling code here:
+        citdit.setVisible(true);
+        citdit.setWindowShow(2);
     }//GEN-LAST:event_CitaEditarActionPerformed
 
     private void contraseñaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseñaActionPerformed
@@ -445,6 +454,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         pacdit.setWindowShow(2);
     }//GEN-LAST:event_PacienteModificarActionPerformed
 
+    private void CitaElimActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitaElimActionPerformed
+        citdit.setVisible(true);
+        citdit.setWindowShow(3);
+    }//GEN-LAST:event_CitaElimActionPerformed
+
     
     private void añadirOpciones(boolean accion){
         MenuBarOP.setVisible(accion);
@@ -472,8 +486,9 @@ public class VentanaInicio extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BEntrar;
     private javax.swing.JMenuItem CitaAgendar;
-    private javax.swing.JMenuItem CitaConsulta;
+    private javax.swing.JMenuItem CitaConsultar;
     private javax.swing.JMenuItem CitaEditar;
+    private javax.swing.JMenuItem CitaElim;
     private javax.swing.JInternalFrame InicioSecion;
     private javax.swing.JMenuBar MenuBarOP;
     private javax.swing.JMenu MenuCita;

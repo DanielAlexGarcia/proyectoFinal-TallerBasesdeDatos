@@ -31,6 +31,7 @@ public class CitaModificar extends javax.swing.JPanel {
         formatosTextArea.setSoloNumeros(txtIDCita, 10);
         formatosTextArea.setSoloNumeros(txtIDDoc, 10);
         formatosTextArea.setSoloNumeros(txtIDPac, 10);
+        formatosTextArea.setSoloLetras(txtEstado, 40);
     }
     
     public void setVaciarComponentes(){
@@ -40,6 +41,7 @@ public class CitaModificar extends javax.swing.JPanel {
         txtIDDoc.setText("");
         txtIDPac.setText("");
         txtNumSeguro.setText("");
+        txtEstado.setText("");
         CBDoctor.setSelectedIndex(0);
         setEnableRBFromGroup(BGBuscar);
     }
@@ -121,6 +123,8 @@ public class CitaModificar extends javax.swing.JPanel {
         BCargar = new javax.swing.JButton();
         BBuscar = new javax.swing.JButton();
         BGuardar = new javax.swing.JButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtEstado = new javax.swing.JTextField();
 
         jLabel1.setText("Modificar cita");
 
@@ -173,6 +177,8 @@ public class CitaModificar extends javax.swing.JPanel {
 
         BGuardar.setText("Guardar");
 
+        jLabel9.setText("Estado");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -222,14 +228,17 @@ public class CitaModificar extends javax.swing.JPanel {
                                             .addComponent(jLabel6)))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(jLabel8))))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabel9, javax.swing.GroupLayout.Alignment.TRAILING)))))
                             .addComponent(jLabel7))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtFecha)
                             .addComponent(CBDoctor, 0, 90, Short.MAX_VALUE)
                             .addComponent(txtHora)
-                            .addComponent(txtNumSeguro))
+                            .addComponent(txtNumSeguro)
+                            .addComponent(txtEstado))
                         .addGap(39, 39, 39)
                         .addComponent(BGuardar)))
                 .addContainerGap(66, Short.MAX_VALUE))
@@ -240,6 +249,15 @@ public class CitaModificar extends javax.swing.JPanel {
                 .addContainerGap(42, Short.MAX_VALUE)
                 .addComponent(jLabel1)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(122, 122, 122)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel4)
+                            .addComponent(txtIDCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(BCargar))
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(jLabel2)
@@ -273,16 +291,11 @@ public class CitaModificar extends javax.swing.JPanel {
                                 .addGap(22, 22, 22)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel8)
-                            .addComponent(txtNumSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(122, 122, 122)
-                        .addComponent(jLabel3)
+                            .addComponent(txtNumSeguro, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel4)
-                            .addComponent(txtIDCita, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(BCargar)
+                            .addComponent(jLabel9)
+                            .addComponent(txtEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(25, 25, 25)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -313,8 +326,10 @@ public class CitaModificar extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
+    private javax.swing.JTextField txtEstado;
     private javax.swing.JFormattedTextField txtFecha;
     private javax.swing.JFormattedTextField txtHora;
     private javax.swing.JTextField txtIDCita;
