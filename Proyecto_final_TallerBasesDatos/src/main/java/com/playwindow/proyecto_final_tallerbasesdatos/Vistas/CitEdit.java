@@ -125,7 +125,7 @@ public class CitEdit extends javax.swing.JInternalFrame {
         });
         jToolBar1.add(BEliminiCita);
 
-        BModifiEstate.setText("Modificar estado");
+        BModifiEstate.setText("Consultar citas");
         BModifiEstate.setFocusable(false);
         BModifiEstate.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         BModifiEstate.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
