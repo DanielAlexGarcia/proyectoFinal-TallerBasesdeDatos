@@ -4,6 +4,14 @@
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsCitas;
 
+import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.*;
+
+import java.util.Enumeration;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.ButtonModel;
+import javax.swing.JRadioButton;
+
 /**
  *
  * @author daniel
@@ -23,9 +31,105 @@ public class CitaConsultas extends javax.swing.JPanel {
         BGBusquedaConsulta.add(RBBusquedaPAP);
         BGBusquedaConsulta.add(RBBusquedaPAPPac);
         BGBusquedaConsulta.add(RBBusquedaSAP);
-        BGBusquedaConsulta.add(RBBusquedaSAP);
+        BGBusquedaConsulta.add(RBBusqSAP);
+        
+        formatosTextArea.setSoloNumeros(txtBusqIDDoc, 10);
+        formatosTextArea.setSoloNumeros(txtBusqIDPac, 10);
+        formatosTextArea.setSoloLetras(txtBusqNomDoc, 70);
+        formatosTextArea.setSoloLetras(txtBusqNomPac, 70);
+        formatosTextArea.setSoloLetras(txtBusqPAP, 45);
+        formatosTextArea.setSoloLetras(txtBusqPAPPac, 45);
+        formatosTextArea.setSoloLetras(txtBusqSAP, 45);
+        formatosTextArea.setSoloLetras(txtBusqSAPPac, 45);
+        
+        cleantxtdisable();
+        
     }
+    
+    public void setVaciarComponentes(){
+        txtBusqIDDoc.setText("");
+        txtBusqIDPac.setText("");
+        txtBusqNomDoc.setText("");
+        txtBusqNomPac.setText("");
+        txtBusqPAP.setText("");
+        txtBusqPAPPac.setText("");
+        txtBusqSAP.setText("");
+        txtBusqSAPPac.setText("");
+    }
+    
+    private void cleantxtdisable(){
+        txtBusqIDDoc.setEditable(false);
+        txtBusqIDPac.setEditable(false);
+        txtBusqNomDoc.setEditable(false);
+        txtBusqNomPac.setEditable(false);
+        txtBusqPAP.setEditable(false);
+        txtBusqPAPPac.setEditable(false);
+        txtBusqSAP.setEditable(false);
+        txtBusqSAPPac.setEditable(false);
+    }
+    
+    private void setEnableRB(JRadioButton select){
+        boolean enable = select.isSelected();
+        if (select == RBBusqSAP){
+            txtBusqSAPPac.setEditable(enable);
+        }else
+        if (select == RBBusquedaIDDoc){
+            txtBusqIDDoc.setEditable(enable);
+        }else
+        if(select == RBBusquedaIDPac){
+            txtBusqIDPac.setEditable(enable);
+        }else
+        if(select == RBBusquedaNomDoc){
+            txtBusqNomDoc.setEditable(enable);
+        }else
+        if (select == RBBusquedaNomPac){
+            txtBusqNomPac.setEditable(enable);
+        }else
+        if (select == RBBusquedaPAP){
+            txtBusqPAP.setEditable(enable);
+        }else
+        if (select == RBBusquedaPAPPac){
+            txtBusqPAPPac.setEditable(enable);
+        }
+        else
+        if (select == RBBusquedaSAP){
+            txtBusqSAP.setEditable(enable);
+        }
+    }
+    
+    public void setEnableRBFromGroup(ButtonGroup grupo) {                           // Metodo para abilitar/desbilitar campos de texto en base a RB dentro de un buttonGroup
+    // 1. Obtener el ButtonModel seleccionado
+    ButtonModel modeloSeleccionado = grupo.getSelection();
 
+    if (modeloSeleccionado != null) {
+        // 2. Iterar sobre los botones del grupo para encontrar el JRadioButton
+        Enumeration<AbstractButton> botones = grupo.getElements();
+        while (botones.hasMoreElements()) {
+            AbstractButton boton = botones.nextElement();
+            if (boton.getModel() == modeloSeleccionado) {
+                // Se encontró el JRadioButton seleccionado
+                if (boton instanceof JRadioButton) {
+                    JRadioButton rbSeleccionado = (JRadioButton) boton;
+                    
+                    // Asegúrate de limpiar y deshabilitar los otros campos primero 
+                    // para emular el comportamiento de un grupo de radio buttons
+                    cleantxtdisable(); 
+                    
+                    // 3. Llamar a tu método existente
+                    setEnableRB(rbSeleccionado);
+                    
+                    // Opcional: enfocar el campo de texto si está habilitado
+                    // if (rbSeleccionado == RBNombres) txtNombres.requestFocusInWindow();
+                    // ... y así sucesivamente para los demás RBs ...
+
+                    break; // Salir del bucle una vez encontrado
+                }
+            }
+        }
+    }
+}
+
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -75,22 +179,57 @@ public class CitaConsultas extends javax.swing.JPanel {
         });
 
         RBBusquedaNomDoc.setText("Nombre");
+        RBBusquedaNomDoc.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBBusquedaNomDocActionPerformed(evt);
+            }
+        });
 
         RBBusquedaPAP.setText("Primer apellido");
+        RBBusquedaPAP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBBusquedaPAPActionPerformed(evt);
+            }
+        });
 
         RBBusquedaSAP.setText("Segundo apellido");
+        RBBusquedaSAP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBBusquedaIDDocActionPerformed(evt);
+            }
+        });
 
         jLabel4.setText("Paciente");
 
         RBBusquedaIDPac.setText("ID paciente");
         RBBusquedaIDPac.setToolTipText("");
+        RBBusquedaIDPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBBusquedaIDDocActionPerformed(evt);
+            }
+        });
 
         RBBusquedaNomPac.setText("Nombre");
+        RBBusquedaNomPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBBusquedaIDDocActionPerformed(evt);
+            }
+        });
 
         RBBusquedaPAPPac.setText("primer apellido");
+        RBBusquedaPAPPac.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBBusquedaIDDocActionPerformed(evt);
+            }
+        });
 
         RBBusqSAP.setText("Segundo apellido");
         RBBusqSAP.setToolTipText("");
+        RBBusqSAP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RBBusquedaIDDocActionPerformed(evt);
+            }
+        });
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -200,8 +339,16 @@ public class CitaConsultas extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
     private void RBBusquedaIDDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBBusquedaIDDocActionPerformed
-        // TODO add your handling code here:
+        setEnableRBFromGroup(BGBusquedaConsulta);
     }//GEN-LAST:event_RBBusquedaIDDocActionPerformed
+
+    private void RBBusquedaNomDocActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBBusquedaNomDocActionPerformed
+        setEnableRBFromGroup(BGBusquedaConsulta);
+    }//GEN-LAST:event_RBBusquedaNomDocActionPerformed
+
+    private void RBBusquedaPAPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RBBusquedaPAPActionPerformed
+        setEnableRBFromGroup(BGBusquedaConsulta);
+    }//GEN-LAST:event_RBBusquedaPAPActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -155,16 +155,25 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBBusquedaNomDocActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBBusquedaPAP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Primer apellido"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBBusquedaPAPActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBBusquedaSAP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Segundo apellido"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBBusquedaIDDocActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtBusqIDDoc">
     </Component>
@@ -184,22 +193,34 @@
         <Property name="text" type="java.lang.String" value="ID paciente"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBBusquedaIDDocActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBBusquedaNomPac">
       <Properties>
         <Property name="text" type="java.lang.String" value="Nombre"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBBusquedaIDDocActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBBusquedaPAPPac">
       <Properties>
         <Property name="text" type="java.lang.String" value="primer apellido"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBBusquedaIDDocActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JRadioButton" name="RBBusqSAP">
       <Properties>
         <Property name="text" type="java.lang.String" value="Segundo apellido"/>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="RBBusquedaIDDocActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JTextField" name="txtBusqIDPac">
     </Component>

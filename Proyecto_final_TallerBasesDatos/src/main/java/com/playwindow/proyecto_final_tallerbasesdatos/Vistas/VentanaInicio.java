@@ -348,6 +348,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         MenuCita.add(CitaElim);
 
         CitaConsultar.setText("Consultar");
+        CitaConsultar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                CitaConsultarActionPerformed(evt);
+            }
+        });
         MenuCita.add(CitaConsultar);
 
         MenuBarOP.add(MenuCita);
@@ -458,6 +463,11 @@ public class VentanaInicio extends javax.swing.JFrame {
         citdit.setVisible(true);
         citdit.setWindowShow(3);
     }//GEN-LAST:event_CitaElimActionPerformed
+
+    private void CitaConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_CitaConsultarActionPerformed
+       citdit.setVisible(true);
+       citdit.setWindowShow(4);
+    }//GEN-LAST:event_CitaConsultarActionPerformed
 
     
     private void añadirOpciones(boolean accion){
