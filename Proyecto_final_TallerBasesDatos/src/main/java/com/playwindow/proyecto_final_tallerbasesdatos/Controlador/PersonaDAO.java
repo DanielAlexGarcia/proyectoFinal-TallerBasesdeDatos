@@ -16,6 +16,8 @@ import com.playwindow.proyecto_final_tallerbasesdatos.Controlador.*;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 
 
@@ -152,6 +154,68 @@ public class PersonaDAO extends AbstracDAO {
 	            }
 	        }
 	    }
+    
+    private ArrayList<Persona> obtenerTodasLasPersonas() {
+        // 1. Declarar la consulta sin WHERE para obtener todas las filas.
+        String sql = "SELECT * FROM Persona"; 
+        
+        PreparedStatement stmt = null;
+        ResultSet rs = null;
+        // 2. Inicializar el ArrayList que contendrá los resultados.
+        ArrayList<Persona> listaPersonas = new ArrayList<>(); 
+        
+        try {
+            // 3. Obtener la conexión y preparar la consulta.
+            stmt = ConexionBD.getInstancia().getConnection().prepareStatement(sql);
+            
+            // 4. Ejecutar la consulta. No hay parámetros que establecer.
+            rs = stmt.executeQuery(); 
+            
+            // 5. Iterar sobre el ResultSet
+            // El método rs.next() se usa en un bucle 'while' para moverse a través de todas las filas.
+            while (rs.next()) {
+                // Dentro del bucle, por cada fila (registro), creamos un nuevo objeto Persona.
+                Persona persona = new Persona(
+                    rs.getInt("DNI"),
+                    rs.getString("Nombres"),
+                    rs.getString("PrimerAP"),
+                    rs.getString("SegundoAP"),
+                    rs.getString("FechaNaci"),
+                    rs.getString("Telefono")
+                );
+                
+                // 6. Añadir el objeto Persona a la lista.
+                listaPersonas.add(persona); 
+            }
+            
+            // 7. Devolver la lista (puede ser vacía si no hay resultados).
+            return listaPersonas; 
+            
+        } catch (SQLException e) {
+            System.err.println("Error al obtener todas las Personas: " + e.getMessage());
+            e.printStackTrace(); // Para más detalles del error
+            // En caso de error, devolvemos la lista vacía o podrías optar por devolver 'null',
+            // aunque devolver una lista vacía es a menudo más seguro para evitar NullPointerExceptions.
+            return listaPersonas; 
+            
+        } finally {
+            // 8. Cerrar recursos en el bloque finally.
+            try {
+                if (rs != null) rs.close();
+                if (stmt != null) stmt.close();
+            } catch (SQLException e) {
+                System.err.println("Error al cerrar recursos: " + e.getMessage());
+            }
+        }
+    }
+    public ArrayList<String> datosListados(){
+        ArrayList<String> listado = new ArrayList<String>();
+        ArrayList<Persona> listaPersonas = obtenerTodasLasPersonas();
+        for(Persona p : listaPersonas){
+            listado.add(p.getNombres()+ " " + p.getPrimerAP()+" "+p.getSegundoAP());
+        }
+        return listado;
+    }
     
     public ResultSet listarPersonas() {
 	        return listaEntity("Persona");

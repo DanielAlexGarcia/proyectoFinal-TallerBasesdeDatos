@@ -4,10 +4,14 @@
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas;
 
+import java.awt.Color;
 import java.text.DecimalFormat;
 import java.text.ParseException;
+import java.util.ArrayList;
 import javax.swing.text.*;
 import java.util.regex.Pattern;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
 
 import javax.swing.JTextArea;
@@ -170,6 +174,46 @@ public class formatosTextArea {
         } catch (ParseException e) {
             System.err.println("Error al crear la máscara de hora: " + e.getMessage());
         }
+    }
+    
+    public static void indicarError(JComponent componente) {
+        // Establece el color de fondo a rojo (o el color que desees para el error)
+        componente.setBackground(Color.RED);
+        
+        // Asegura que el componente sea opaco para que el color de fondo se muestre
+        componente.setOpaque(true);
+        
+        // Solicita al sistema que repinte el componente para reflejar el cambio
+        componente.repaint();
+    }
+    
+    /**
+     * Restaura el color de fondo del JComponent a un color "normal" (blanco).
+     * * @param componente El JComponent al que se le restaurará el color.
+     */
+    public static void restaurarColorNormal(JComponent componente) {
+        // Establece el color de fondo a blanco (o el color por defecto que uses)
+        componente.setBackground(Color.WHITE); 
+        
+        // Asegura que el componente sea opaco (generalmente lo será para campos de texto)
+        componente.setOpaque(true);
+        
+        // Solicita al sistema que repinte el componente
+        componente.repaint();
+    }
+    
+    public static DefaultComboBoxModel<String> crearModeloComboBoxDesdeLista(ArrayList<String> listaDatos) {
+        
+        // 1. Inicializar el modelo.
+        DefaultComboBoxModel<String> model = new DefaultComboBoxModel<>();
+
+        // 2. Iterar sobre la lista de cadenas y añadirlas al modelo.
+        for (String dato : listaDatos) {
+            model.addElement(dato);
+        }
+
+        // 3. Devolver el modelo.
+        return model;
     }
    
 }

@@ -39,41 +39,44 @@
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="RBBusquedaPAP" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBBusquedaNomDoc" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBBusquedaIDDoc" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBBusquedaSAP" alignment="1" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtBusqIDDoc" alignment="0" pref="80" max="32767" attributes="0"/>
-                          <Component id="txtBusqNomDoc" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtBusqPAP" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtBusqSAP" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                      <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Component id="RBBusquedaIDPac" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBBusquedaNomPac" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBBusquedaPAPPac" min="-2" max="-2" attributes="0"/>
-                          <Component id="RBBusqSAP" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="txtBusqSAPPac" alignment="0" pref="90" max="32767" attributes="0"/>
-                          <Component id="txtBusqPAPPac" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtBusqNomPac" alignment="0" max="32767" attributes="0"/>
-                          <Component id="txtBusqIDPac" alignment="0" max="32767" attributes="0"/>
-                      </Group>
-                  </Group>
-                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="299" max="-2" attributes="0"/>
                       <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="138" max="32767" attributes="0"/>
+              <EmptySpace pref="270" max="32767" attributes="0"/>
+          </Group>
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="RBBusquedaPAP" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBBusquedaNomDoc" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBBusquedaIDDoc" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBBusquedaSAP" alignment="1" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtBusqIDDoc" alignment="0" pref="80" max="32767" attributes="0"/>
+                  <Component id="txtBusqNomDoc" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtBusqPAP" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtBusqSAP" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="122" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="RBBusquedaIDPac" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBBusquedaNomPac" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBBusquedaPAPPac" min="-2" max="-2" attributes="0"/>
+                  <Component id="RBBusqSAP" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                  <Component id="txtBusqSAPPac" alignment="0" pref="90" max="32767" attributes="0"/>
+                  <Component id="txtBusqPAPPac" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtBusqNomPac" alignment="0" max="32767" attributes="0"/>
+                  <Component id="txtBusqIDPac" alignment="0" max="32767" attributes="0"/>
+              </Group>
+              <EmptySpace max="32767" attributes="0"/>
+              <Component id="BBuscarResultados" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -109,6 +112,7 @@
                   <Component id="txtBusqPAP" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="RBBusquedaPAPPac" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtBusqPAPPac" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="BBuscarResultados" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -254,6 +258,11 @@
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
         <Property name="text" type="java.lang.String" value="Resultados"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="BBuscarResultados">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Buscar"/>
       </Properties>
     </Component>
   </SubComponents>

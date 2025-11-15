@@ -163,6 +163,7 @@ public class CitaConsultas extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
+        BBuscarResultados = new javax.swing.JButton();
 
         jLabel1.setText("Buscar citas");
 
@@ -246,6 +247,8 @@ public class CitaConsultas extends javax.swing.JPanel {
 
         jLabel5.setText("Resultados");
 
+        BBuscarResultados.setText("Buscar");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -266,34 +269,37 @@ public class CitaConsultas extends javax.swing.JPanel {
                         .addGap(233, 233, 233)
                         .addComponent(jLabel2))
                     .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(RBBusquedaPAP)
-                            .addComponent(RBBusquedaNomDoc)
-                            .addComponent(RBBusquedaIDDoc)
-                            .addComponent(RBBusquedaSAP))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtBusqIDDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
-                            .addComponent(txtBusqNomDoc)
-                            .addComponent(txtBusqPAP)
-                            .addComponent(txtBusqSAP))
-                        .addGap(122, 122, 122)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(RBBusquedaIDPac)
-                            .addComponent(RBBusquedaNomPac)
-                            .addComponent(RBBusquedaPAPPac)
-                            .addComponent(RBBusqSAP))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtBusqSAPPac, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
-                            .addComponent(txtBusqPAPPac)
-                            .addComponent(txtBusqNomPac)
-                            .addComponent(txtBusqIDPac)))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(299, 299, 299)
                         .addComponent(jLabel5)))
-                .addContainerGap(138, Short.MAX_VALUE))
+                .addContainerGap(270, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(RBBusquedaPAP)
+                    .addComponent(RBBusquedaNomDoc)
+                    .addComponent(RBBusquedaIDDoc)
+                    .addComponent(RBBusquedaSAP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtBusqIDDoc, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(txtBusqNomDoc)
+                    .addComponent(txtBusqPAP)
+                    .addComponent(txtBusqSAP))
+                .addGap(122, 122, 122)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(RBBusquedaIDPac)
+                    .addComponent(RBBusquedaNomPac)
+                    .addComponent(RBBusquedaPAPPac)
+                    .addComponent(RBBusqSAP))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtBusqSAPPac, javax.swing.GroupLayout.DEFAULT_SIZE, 90, Short.MAX_VALUE)
+                    .addComponent(txtBusqPAPPac)
+                    .addComponent(txtBusqNomPac)
+                    .addComponent(txtBusqIDPac))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(BBuscarResultados)
+                .addGap(20, 20, 20))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -323,7 +329,8 @@ public class CitaConsultas extends javax.swing.JPanel {
                     .addComponent(RBBusquedaPAP)
                     .addComponent(txtBusqPAP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(RBBusquedaPAPPac)
-                    .addComponent(txtBusqPAPPac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtBusqPAPPac, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(BBuscarResultados))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(RBBusquedaSAP)
@@ -352,6 +359,7 @@ public class CitaConsultas extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BBuscarResultados;
     private javax.swing.ButtonGroup BGBusquedaConsulta;
     private javax.swing.JRadioButton RBBusqSAP;
     private javax.swing.JRadioButton RBBusquedaIDDoc;

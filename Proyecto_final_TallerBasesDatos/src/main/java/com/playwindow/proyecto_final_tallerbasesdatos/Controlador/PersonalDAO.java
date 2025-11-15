@@ -51,7 +51,7 @@ public class PersonalDAO extends AbstracDAO{
 	        StatementSetter setter = (stmt) -> {
                     stmt.setInt(1, PersonalID);
                 };
-                return ejecutarCRUDTemplate(sql, setter, "eliminar Eprsonal"); 
+                return ejecutarCRUDTemplate(sql, setter, "eliminar Personal"); 
 	    }
     
     // agregar fila

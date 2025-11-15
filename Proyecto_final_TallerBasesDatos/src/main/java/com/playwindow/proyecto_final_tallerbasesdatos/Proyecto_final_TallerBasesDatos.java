@@ -10,12 +10,15 @@ import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.*;
  * @author daniel
  */
 public class Proyecto_final_TallerBasesDatos {
+    VentanaInicio interfaz;
 
     public static void main(String[] args) {
         
        java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentanaInicio().setVisible(true);
+                VentanaInicio ventana = VentanaInicio.getInstance(); 
+                ventana.setVisible(true);
+                ventana.setInstance(ventana);
             }
         });
        

@@ -4,7 +4,10 @@
  */
 package com.playwindow.proyecto_final_tallerbasesdatos.Vistas.PanelsPersona;
 
+import com.playwindow.proyecto_final_tallerbasesdatos.Hilos.Hiloprovar;
+import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.VentanaInicio;
 import com.playwindow.proyecto_final_tallerbasesdatos.Vistas.formatosTextArea;
+import java.util.ArrayList;
 import javax.swing.JFormattedTextField;
 import javax.swing.JTextArea;
 
@@ -13,11 +16,17 @@ import javax.swing.JTextArea;
  * @author daniel
  */
 public class PersonaAlta extends javax.swing.JPanel {
+    //VentanaInicio faz;
 
     /**
      * Creates new form PersonaAlta
      */
-    public PersonaAlta() {
+    public PersonaAlta(VentanaInicio interfas) {
+        //this.faz = interfas;
+        //System.out.println(interfas); // <- imprime null
+        /*if (faz == null){
+            System.out.println("nulo desde el inicio");
+        }*/
         initComponents();
         formatosTextArea.setSoloLetras(txtDepartamento, 70);
         formatosTextArea.setSoloLetras(txtRol, 70);
@@ -62,6 +71,11 @@ public class PersonaAlta extends javax.swing.JPanel {
         jLabel6.setText("Salario");
 
         BAñadirPersona.setText("Añadir persona");
+        BAñadirPersona.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BAñadirPersonaActionPerformed(evt);
+            }
+        });
 
         CBPersonas.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -124,6 +138,16 @@ public class PersonaAlta extends javax.swing.JPanel {
                 .addContainerGap(153, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void BAñadirPersonaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BAñadirPersonaActionPerformed
+        Hiloprovar hprov = new Hiloprovar(null, new ArrayList<String>() {{add("1100");
+        add("non");
+        add("non");
+        add("non");
+        add("14.5");
+        }});
+        hprov.hiloAgregarPersonal();
+    }//GEN-LAST:event_BAñadirPersonaActionPerformed
 
     public void setVaciarComponentes(){
         txtDepartamento.setText("");

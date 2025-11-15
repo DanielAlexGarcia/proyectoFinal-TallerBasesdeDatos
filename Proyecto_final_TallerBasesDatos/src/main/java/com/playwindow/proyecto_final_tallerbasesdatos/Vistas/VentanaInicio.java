@@ -15,14 +15,12 @@ import javax.swing.*;
  */
 public class VentanaInicio extends javax.swing.JFrame {
     
-    public static VentanaInicio interfaz;
+    public static VentanaInicio instance;
     public static JFrame frame = new JFrame();
     
-    private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(VentanaInicio.class.getName());
-    PersoEdit perEdit = new PersoEdit();
-    PacEdit pacdit = new PacEdit();
-    CitEdit citdit = new CitEdit();
-    
+    PersoEdit perEdit;
+    PacEdit pacdit;
+    CitEdit citdit;
     private void coneccionDB(){
         System.out.println("--- Iniciando prueba de conexión ---");
 
@@ -54,8 +52,9 @@ public class VentanaInicio extends javax.swing.JFrame {
         
         ConexionBD conexion = new ConexionBD();
         
+        
          // 2. CREAR una instancia de la clase PersonaDAO
-        PersonalDAO dao = new PersonalDAO(interfaz);
+        PersonalDAO dao = new PersonalDAO(this);
 
         // Datos para la actualización (asegúrate de que los tipos coincidan)
         int dni = 105;
@@ -87,14 +86,21 @@ public class VentanaInicio extends javax.swing.JFrame {
     /**
      * Creates new form VentanaInicio
      */
-    public VentanaInicio() {
+    private VentanaInicio() {
         initComponents();
         contraseña.setText("");
         añadirOpciones(false);
+        
+       //provar();
+    }
+    
+    private void loadPags(){
+        perEdit = new PersoEdit(instance);
+        pacdit = new PacEdit();
+        citdit = new CitEdit();
         destopPanel.add(perEdit);
         destopPanel.add(pacdit);
         destopPanel.add(citdit);
-       //provar();
     }
     public void showMessageDialog(JFrame fame, String n, boolean activar) {
 		  // ventana = JFrame padre
@@ -109,7 +115,7 @@ public class VentanaInicio extends javax.swing.JFrame {
     	}else {
     		if(cargando != null) {
     			cargando.dispose();
-    			cargando = null;		// libera la referencia para la proxima creacion de la ventana
+    			cargando = null; // libera la referencia para la proxima creacion de la ventana
     		}
     	}
         }
@@ -474,15 +480,33 @@ public class VentanaInicio extends javax.swing.JFrame {
         MenuBarOP.setVisible(accion);
     }
     
+    public static VentanaInicio getInstance(){
+        if (instance == null){
+            instance = new VentanaInicio();
+        }
+        return instance;
+    }
+    
+    public void setInstance(VentanaInicio fas){
+        if (fas != null && instance == null){
+            
+            
+            instance = fas;
+        }if (instance != null){
+            System.out.println(instance);
+                System.out.println("ya esta iniciada");
+                loadPags();
+            }
+    }
+    
     public static void main(String args[]) {
         
-        java.awt.EventQueue.invokeLater(() -> new VentanaInicio().setVisible(true));
+        java.awt.EventQueue.invokeLater(() -> {
+            instance = getInstance();
+    });
         
-       
+    
         
-    }
-    public static VentanaInicio getinterfaz(){
-        return interfaz;
     }
     
     public void ShowMessage(String message) {

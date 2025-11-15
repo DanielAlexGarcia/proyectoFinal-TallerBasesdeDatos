@@ -18,20 +18,22 @@ public class PersoEdit extends javax.swing.JInternalFrame {
 
     private JPanel panelDeContenido;
     private CardLayout cardLayout;
+    private VentanaInicio interfa;
     
     public final String PanelAlta = "PanelAltaPersona";
     public final String PanelBaja = "PanelBajaPersona";
     public final String PanelEdit = "PanelEditPersona";
     
-    private PersonaAlta perAlta = new PersonaAlta();
+    private PersonaAlta perAlta = new PersonaAlta(interfa);
     private PersonaBaja perBaja = new PersonaBaja();
     private PersonalEdit perEdit = new PersonalEdit();
     
     /**
      * Creates new form PersoEdit
      */
-    public PersoEdit() {
-        
+    public PersoEdit(VentanaInicio inter) {
+        System.out.println(inter);
+        this.interfa = inter;
         initComponents();
         this.setDefaultCloseOperation(javax.swing.WindowConstants.HIDE_ON_CLOSE);
         iniciarCardLayout();
